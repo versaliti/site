@@ -2547,6 +2547,8 @@ section,
 
 .pricing .pricing-card:hover {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: var(--accent-color);
+  color: var(--contrast-color);
 }
 
 .pricing .pricing-card.popular {
@@ -2587,8 +2589,8 @@ section,
   top: -12px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--contrast-color);
-  color: var(--accent-color);
+  background: var(--accent-color);
+  color: var(--contrast-color);
   padding: 0.5rem 1rem;
   border-radius: 2rem;
   font-size: 0.875rem;
