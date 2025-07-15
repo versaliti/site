@@ -7,6 +7,7 @@
   <title>Versaliti | Web Page</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
+  <script src="assets/script/script.js"></script>
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -1496,19 +1497,27 @@
                 <div class="row gy-4">
 
                   <div class="col-md-6">
-                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                    <input id="name_contato" type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                  </div>
+
+                  <div class="col-md-6">
+                    <input id="telefone_contato" type="tel" name="phone" class="form-control" placeholder="Your Phone" required>
+                  </div>
+
+                  <div class="col-md-6">
+                    <input id="ramo_contato" type="text" name="ramo" class="form-control" placeholder="Your Segment" required="">
                   </div>
 
                   <div class="col-md-6 ">
-                    <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                    <input id="email_contato" type="email" class="form-control" name="email" placeholder="Your Email" required="">
                   </div>
 
                   <div class="col-12">
-                    <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                    <input id="assunto_contato" type="text" class="form-control" name="subject" placeholder="Subject" required="">
                   </div>
 
                   <div class="col-12">
-                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                    <textarea id="mensagem_contato" class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
                   </div>
 
                   <div class="col-12 text-center">
