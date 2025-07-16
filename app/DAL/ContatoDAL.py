@@ -4,7 +4,7 @@ from typing import List
 from dataclasses import dataclass
 
 @dataclass
-class PublicadorDAL(BaseDAL):
+class ContatoDAL(BaseDAL):
     def cadastrar(self, contato: ContatoModel):
         try:
             with BaseDAL() as conexao:

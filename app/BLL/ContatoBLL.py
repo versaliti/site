@@ -2,7 +2,7 @@ from datetime import date
 from DAL.ContatoDAL import ContatoDAL
 from Model.ContatoModel import ContatoModel
 
-class PublicadorBLL:
+class ContatoBLL:
     def cadastrar(self, nome: str, email: str, assunto: str, telefone: str, segmento: str, mensagem: str, data_contato:date):
         try:
             if nome is None or nome == "":
