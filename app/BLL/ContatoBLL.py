@@ -1,43 +1,40 @@
 from datetime import date
-from DAL.PublicadorDAL import PublicadorDAL
+from DAL.ContatoDAL import ContatoDAL
 from Model.ContatoModel import ContatoModel
 
 class PublicadorBLL:
-    def cadastrar(self, nome: str, data_nascimento: date, numero_celular: str, numero_emergencia: str, data_batismo:date = None, privilegio_campo: str = None, privilegio_congregacao: str = None, observacao: str = None):
+    def cadastrar(self, nome: str, email: str, assunto: str, telefone: str, segmento: str, mensagem: str, data_contato:date):
         try:
             if nome is None or nome == "":
-                raise Exception("O nome do publicador é obrigatório!")
+                raise Exception("O nome para contato é obrigatório!")
             
-            if data_nascimento is None:
-                raise Exception("A data de nascimento é obrigatória!")
+            if email is None:
+                raise Exception("O email para contato é obrigatória!")
             
-            if numero_celular is None or numero_celular == "":
-                raise Exception("O número de celular é obrigatório e deve ter 11 caracteres!")
+            if assunto is None or assunto == "":
+                raise Exception("O assunto para contato é obrigatório!")
             
-            if numero_emergencia is None or numero_emergencia == "":
-                raise Exception("O número de emergencia é obrigatório e deve ter 11 caracteres!")
+            if telefone is None or telefone == "":
+                raise Exception("O telefone para contato é obrigatório!")
             
-            if privilegio_campo is None or privilegio_campo == "":
-                privilegio_campo = None
+            if segmento is None or segmento == "":
+                raise Exception("O segmento para contato é obrigatório!")
             
-            if privilegio_congregacao is None or privilegio_congregacao == "":
-                privilegio_congregacao = None
+            if mensagem is None or mensagem == "":
+                raise Exception("As informações sobre a necessidade para contato são obrigatórias!")
             
-            if observacao is None or observacao == "":
-                observacao = None
             
-            publicador = PublicadorModel(
+            contato = ContatoModel(
                 nome=nome,
-                data_nascimento=data_nascimento,
-                data_batismo=data_batismo,
-                numero_celular=numero_celular,
-                numero_emergencia=numero_emergencia,
-                privilegio_campo=privilegio_campo,
-                privilegio_congregacao=privilegio_congregacao,
-                observacao=observacao
+                email=email,
+                assunto=assunto,
+                telefone=telefone,
+                segmento=segmento,
+                mensagem=mensagem,
+                data_contato=data_contato
             )
 
-            PublicadorDAL().cadastrar(publicador)
+            ContatoDAL().cadastrar(contato)
             return True
         
         except Exception as excessao:
