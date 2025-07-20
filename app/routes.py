@@ -1,23 +1,21 @@
-from flask import Blueprint, render_template, request, redirect, current_app
-from flask import Flask, request, jsonify
+from flask import Blueprint, request, jsonify
 from flask_cors import CORS
-from BLL.ContatoBLL import ContatoBLL
+from app.BLL.ContatoBLL import ContatoBLL
+from datetime import date
 
-servidor = Flask(__name__)
-CORS(servidor)
+main = Blueprint('main', __name__)
+CORS(main)
 
-@servidor.route('/cadastrar-contato', methods=['POST'])
-def cadastrarPublicador():
+@main.route('/cadastrar-contato', methods=['POST'])
+def cadastrar_publicador():
     contato = request.get_json()
-    if ContatoBLL().cadastrar(nome=contato.get('nome'),
-                                 email=contato.get('email'),
-                                 assunto=contato.get('assunto'),
-                                 telefone=contato.get('telefone'),
-                                 segmento=contato.get('segmento'),
-                                 mensagem=contato.get('mensagem')) is True:
-        return jsonify({"sucesso": True}), 200
-    else:
-        return jsonify({"sucesso": False}), 412
-
-if __name__ == "__main__":
-    servidor.run(debug=True, port=5000)
+    sucesso = ContatoBLL().cadastrar(
+        nome=contato.get('nome'),
+        email=contato.get('email'),
+        assunto=contato.get('assunto'),
+        telefone=contato.get('telefone'),
+        segmento=contato.get('segmento'),
+        mensagem=contato.get('mensagem'),
+        data_contato=date.today()   
+    )
+    return jsonify({"sucesso": sucesso}), 200 if sucesso else 412

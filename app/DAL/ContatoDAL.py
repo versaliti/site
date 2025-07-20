@@ -1,5 +1,5 @@
-from DAL.BaseDAL import BaseDAL
-from Model.ContatoModel import ContatoModel
+from app.DAL.BaseDAL import BaseDAL
+from app.Model.ContatoModel import ContatoModel
 from typing import List
 from dataclasses import dataclass
 

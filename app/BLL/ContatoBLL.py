@@ -1,6 +1,6 @@
 from datetime import date
-from DAL.ContatoDAL import ContatoDAL
-from Model.ContatoModel import ContatoModel
+from app.DAL.ContatoDAL import ContatoDAL
+from app.Model.ContatoModel import ContatoModel
 
 class ContatoBLL:
     def cadastrar(self, nome: str, email: str, assunto: str, telefone: str, segmento: str, mensagem: str, data_contato:date):
