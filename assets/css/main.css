@@ -3573,37 +3573,56 @@ FIM TESTE HOVER
   align-items: center;
   flex-direction: column;
   z-index: 3;
+  text-align: center;
 }
+
 
 @media (max-width: 992px) {
   .hero-2 .carousel-container {
     text-align: center;
+    display: flex;
+    justify-content: center;
   }
+
 }
 
 .hero-2 h2 {
   margin-bottom: 30px;
-  font-size: 48px;
+  font-size: 3rem;
   font-weight: 700;
   animation: fadeInDown 1s both;
   justify-content: start;
-  text-align: left;
+  text-align: center;
 }
+
+@media (min-width: 768px) {
+    .hero-2 h2 {
+      font-size: 4.5rem;
+    }
+}
+
 
 @media (max-width: 768px) {
   .hero-2 h2 {
-    font-size: 30px;
+    font-size: 2rem;
   }
 }
 
 .hero-2 p {
   animation: fadeInDown 1s both 0.2s;
+  font-size: 1.5rem;
 }
 
 @media (min-width: 1024px) {
   .hero-2 h2,
   .hero-2 p {
     max-width: 60%;
+  }
+}
+
+@media (max-width: 767px) { 
+  .hero-2 p {
+    font-size: 1.2rem;
   }
 }
 
