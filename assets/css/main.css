@@ -155,21 +155,8 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 36px;
+  max-height: 3.5rem;
   margin-right: 8px;
-}
-
-.header .logo h1 {
-  font-size: 30px;
-  margin: 0;
-  font-weight: 700;
-  color: var(--heading-color);
-  padding-bottom: 5px;
-}
-
-.header .logo h1 span {
-  color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
-  font-style: italic;
 }
 
 .header .btn-getstarted,
