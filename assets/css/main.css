@@ -3468,7 +3468,7 @@ FIM TESTE HOVER
 
 .hero-2 .carousel-container {
   position: absolute;
-  inset: 90px 64px 64px 64px;
+  inset: -290px 64px 64px 64px;
   display: flex;
   justify-content: center;
   align-items: center;
