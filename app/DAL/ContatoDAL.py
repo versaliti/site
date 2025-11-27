@@ -9,7 +9,7 @@ class ContatoDAL(BaseDAL):
         try:
             with BaseDAL() as conexao:
                 conexao.execute(
-                "insert into contato (nome, email, assunto, telefone, segmento, mensagem, data_contato) values (?, ?,?,?,?,?,?);",
+                "insert into contato (nome, email, assunto, telefone, segmento, mensagem, data_contato) values (%s, %s,%s,%s,%s,%s,%s);",
                 (contato.nome, contato.email, contato.assunto, contato.telefone, contato.segmento, contato.mensagem, contato.data_contato)
                 )
         except Exception as excessao:

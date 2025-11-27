@@ -1465,8 +1465,9 @@
               <h3>Envie sua mensagem</h3>
               <p>Preencha o formulário abaixo e retornaremos o contato o mais breve possível.</p>
 
-              <form action="https://formspree.io/f/{seu-endpoint}" method="post" class="php-email-form"
-                data-aos="fade-up" data-aos-delay="200">
+              <form id="contactForm" method="post" role="form" class="custom-form" data-aos="fade-up"
+                data-aos-delay="200" onsubmit="cadastrarInteresse(event); return false;">
+
                 <div class="row gy-4">
 
                   <div class="col-md-6">
@@ -1504,12 +1505,12 @@
                     <div class="error-message"></div>
                     <div class="sent-message">Sua mensagem foi enviada com sucesso. Obrigado pelo contato!</div>
 
-                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                    <button type="button" class="btn btn-primary" onclick="cadastrarInteresse()">Enviar
+                      Mensagem</button>
                   </div>
 
                 </div>
               </form>
-
             </div>
           </div>
 
@@ -1650,7 +1651,7 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <script src="assets/script/script.js"></script>
+  <script src="assets/js/script.js"></script>
 
 </body>
 
