@@ -1,48 +1,39 @@
-/* Fonts */
+/* =========================================================
+   Design Tokens (Fonts + Colors + Nav + Behavior)
+   ========================================================= */
+
 :root {
+  /* Fonts */
   --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Raleway", sans-serif;
   --nav-font: "Poppins", sans-serif;
-}
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root {
-  --background-color: #ffffff;
-  /* Background color for the entire website, including individual sections */
+  /* Global Colors */
+  --background-color: #bdc1c9;
   --default-color: #555555;
-  /* Default color used for the majority of the text content across the entire website */
   --heading-color: #0d3035;
-  /* Color for headings, subheadings and title throughout the website */
   --accent-color: #036dda;
-  /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff;
-  /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff;
-  /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 
+  /* Extras */
   --shadow: #060606a4;
-}
 
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
-:root {
+  /* Nav Colors */
   --nav-color: rgba(255, 255, 255, 0.8);
-  /* The default color of the main navmenu links */
   --nav-hover-color: #ffffff;
-  /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff;
-  /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff;
-  /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #555555;
-  /* Used for navigation links of the dropdown items in the navigation menu. */
   --nav-dropdown-hover-color: #036dda;
-  /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+
+  /* Behavior */
+  scroll-behavior: smooth;
 }
 
-/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
-
+/* Color presets */
 .light-background {
   --background-color: #f1f7fc;
   --surface-color: #ffffff;
@@ -56,24 +47,32 @@
   --contrast-color: #ffffff;
 }
 
-/* Smooth scroll */
-:root {
-  scroll-behavior: smooth;
-}
-
-/*--------------------------------------------------------------
-# General Styling & Shared Classes
---------------------------------------------------------------*/
-
+/* Base */
 html {
-  font-size: 100%;
-  /* 16px */
+  font-size: 62.5%; /* 1rem = 10px */
 }
 
+/* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  scrollbar-color: var(--color-accent) transparent;
 }
+
+/* Edge / Chrome / Chromium */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent);
+  border-radius: 10px;
+}
+
+
 
 body {
   color: var(--default-color);
@@ -84,7 +83,7 @@ body {
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 }
 
 a {
@@ -187,7 +186,7 @@ h6 {
 .header .btn-getstarted:focus {
   color: var(--contrast-color);
   background: var(--accent-color);
-  font-size: 17px;
+  font-size: 1.7rem;
   font-weight: 500;
   padding: 8px 25px;
   margin: 0 0 0 30px;
@@ -207,7 +206,7 @@ h6 {
   }
 
   .header .logo h1 {
-    font-size: 24px;
+    font-size: 2.4rem;
   }
 
   .header .btn-getstarted {
@@ -265,7 +264,7 @@ h6 {
   .navmenu a:focus {
     color: var(--nav-color);
     padding: 0 2px;
-    font-size: 17px;
+    font-size: 1.7rem;
     font-family: var(--nav-font);
     font-weight: 500;
     display: flex;
@@ -278,7 +277,7 @@ h6 {
 
   .navmenu a i,
   .navmenu a:focus i {
-    font-size: 12px;
+    font-size: 1.2rem;
     line-height: 0;
     margin-left: 5px;
     transition: 0.3s;
@@ -335,13 +334,13 @@ h6 {
 
   .navmenu .dropdown ul a {
     padding: 10px 20px;
-    font-size: 15px;
+    font-size: 1.5rem;
     text-transform: none;
     color: var(--nav-dropdown-color);
   }
 
   .navmenu .dropdown ul a i {
-    font-size: 12px;
+    font-size: 1.2rem;
   }
 
   .navmenu .dropdown ul a:hover,
@@ -374,7 +373,7 @@ h6 {
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
     color: var(--nav-color);
-    font-size: 28px;
+    font-size: 2.8rem;
     line-height: 0;
     margin-right: 10px;
     cursor: pointer;
@@ -406,7 +405,7 @@ h6 {
     color: var(--nav-dropdown-color);
     padding: 10px 20px;
     font-family: var(--nav-font);
-    font-size: 17px;
+    font-size: 1.7rem;
     font-weight: 500;
     display: flex;
     align-items: center;
@@ -417,7 +416,7 @@ h6 {
 
   .navmenu a i,
   .navmenu a:focus i {
-    font-size: 12px;
+    font-size: 1.2rem;
     line-height: 0;
     margin-left: 5px;
     width: 30px;
@@ -477,7 +476,7 @@ h6 {
   .mobile-nav-active .mobile-nav-toggle {
     color: #fff;
     position: absolute;
-    font-size: 32px;
+    font-size: 3.2rem;
     top: 15px;
     right: 15px;
     margin-right: 0;
@@ -503,7 +502,7 @@ h6 {
 .footer {
   color: var(--default-color);
   background-color: var(--background-color);
-  font-size: 14px;
+  font-size: 1.4rem;
   position: relative;
 }
 
@@ -513,7 +512,7 @@ h6 {
 }
 
 .footer .footer-newsletter h4 {
-  font-size: 24px;
+  font-size: 2.4rem;
 }
 
 .footer .footer-newsletter .newsletter-form {
@@ -548,7 +547,7 @@ h6 {
 
 .footer .footer-newsletter .newsletter-form input[type="submit"] {
   border: 0;
-  font-size: 16px;
+  font-size: 1.6rem;
   padding: 0 20px;
   margin: -7px -8px -7px 0;
   background: var(--accent-color);
@@ -573,7 +572,7 @@ h6 {
   height: 40px;
   border-radius: 50%;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
-  font-size: 16px;
+  font-size: 1.6rem;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
   margin-right: 10px;
   transition: 0.3s;
@@ -585,7 +584,7 @@ h6 {
 }
 
 .footer h4 {
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: bold;
   position: relative;
   padding-bottom: 12px;
@@ -603,7 +602,7 @@ h6 {
 
 .footer .footer-links ul i {
   margin-right: 3px;
-  font-size: 12px;
+  font-size: 1.2rem;
   line-height: 0;
   color: var(--accent-color);
 }
@@ -630,7 +629,7 @@ h6 {
 
 .footer .footer-about a {
   color: var(--heading-color);
-  font-size: 24px;
+  font-size: 2.4rem;
   font-weight: 600;
   font-family: var(--heading-font);
 }
@@ -650,7 +649,7 @@ h6 {
 
 .footer .credits {
   margin-top: 6px;
-  font-size: 13px;
+  font-size: 1.3rem;
 }
 
 /*--------------------------------------------------------------
@@ -706,7 +705,7 @@ h6 {
 }
 
 .scroll-top i {
-  font-size: 24px;
+  font-size: 2.4rem;
   color: var(--contrast-color);
   line-height: 0;
 }
@@ -742,7 +741,7 @@ h6 {
 }
 
 .page-title h1 {
-  font-size: 42px;
+  font-size: 4.2rem;
   font-weight: 700;
   margin-bottom: 10px;
 }
@@ -754,7 +753,7 @@ h6 {
   justify-content: center;
   padding: 0;
   margin: 0;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
 }
 
@@ -799,7 +798,7 @@ section,
 }
 
 .section-title h2 {
-  font-size: 32px;
+  font-size: 3.2rem;
   font-weight: 700;
   margin-bottom: 20px;
   padding-bottom: 20px;
@@ -821,6 +820,7 @@ section,
 
 .section-title p {
   margin-bottom: 0;
+  font-size: 1.6rem;
 }
 
 /*--------------------------------------------------------------
@@ -854,7 +854,7 @@ section,
 }
 
 .hero .hero-content p {
-  font-size: 1.1rem;
+  font-size: 1.6rem;
   margin-bottom: 2rem;
   color: var(--default-color);
 }
@@ -1026,6 +1026,7 @@ section,
   font-weight: 600;
   margin-bottom: 1rem;
   display: inline-block;
+  font-size: 1.3rem;
 }
 
 .about .about-title {
@@ -1061,7 +1062,7 @@ section,
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 1rem;
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 
 .about .feature-list li i {
@@ -1077,14 +1078,14 @@ section,
 }
 
 .about .profile .profile-name {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   margin: 0;
 }
 
 .about .profile .profile-position {
   color: var(--accent-color);
   margin: 0;
-  font-size: 0.875rem;
+  font-size: 1.25rem;
 }
 
 .about .contact-info {
@@ -1101,7 +1102,7 @@ section,
 
 .about .contact-info .contact-label {
   color: color-mix(in srgb, var(--default-color), transparent 30%);
-  font-size: 0.875rem;
+  font-size: 1.25rem;
   margin: 0;
 }
 
@@ -1184,14 +1185,14 @@ section,
 }
 
 .about .image-wrapper .experience-badge h3 span {
-  font-size: 1rem;
+  font-size: 1.3rem;
   display: inline-block;
   margin-left: 0.25rem;
 }
 
 .about .image-wrapper .experience-badge p {
   margin: 0.5rem 0 0;
-  font-size: 0.875rem;
+  font-size: 1.4rem;
 }
 
 @keyframes experience-float {
@@ -1388,7 +1389,7 @@ section,
   height: 72px;
   background-color: color-mix(in srgb, var(--accent-color), transparent 92%);
   color: var(--accent-color);
-  font-size: 34px;
+  font-size: 3.4rem;
   margin-bottom: 28px;
   display: flex;
   align-items: center;
@@ -1400,8 +1401,9 @@ section,
   line-height: 1;
 }
 
+
 .services .service-item h3 {
-  font-size: 26px;
+  font-size: 2.6rem;
   font-weight: 700;
   margin-bottom: 15px;
 }
@@ -1434,7 +1436,7 @@ section,
   height: 56px;
   background-color: var(--accent-color);
   color: var(--contrast-color);
-  font-size: 22px;
+  font-size: 2.2rem;
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
@@ -1474,13 +1476,13 @@ section,
   }
 
   .services .service-item h3 {
-    font-size: 22px;
+    font-size: 2.2rem;
   }
 
   .services .service-item .service-icon {
     width: 64px;
     height: 64px;
-    font-size: 30px;
+    font-size: 3rem;
   }
 }
 
@@ -1562,12 +1564,12 @@ section,
   align-items: center;
   justify-content: center;
   color: var(--accent-color);
-  font-size: 32px;
+  font-size: 3.2rem;
   transition: all 0.3s ease;
 }
 
 .alt-services .service-card .card-header h4 {
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 600;
   margin: 0;
   color: var(--heading-color);
@@ -1578,7 +1580,7 @@ section,
 }
 
 .alt-services .service-card .card-body p {
-  font-size: 14px;
+  font-size: 1.6rem;
   line-height: 1.6;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
   margin-bottom: 20px;
@@ -1637,14 +1639,14 @@ section,
   border-radius: 8px;
   color: var(--accent-color);
   font-weight: 600;
-  font-size: 14px;
+  font-size: 1.4rem;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .alt-services .service-card .card-footer .btn-explore i {
   margin-left: 8px;
-  font-size: 16px;
+  font-size: 1.6rem;
   transition: transform 0.3s ease;
 }
 
@@ -1679,12 +1681,12 @@ section,
   .alt-services .service-card .card-header .icon-box {
     width: 60px;
     height: 60px;
-    font-size: 28px;
+    font-size: 2.8rem;
     margin-bottom: 15px;
   }
 
   .alt-services .service-card .card-header h4 {
-    font-size: 16px;
+    font-size: 1.6rem;
   }
 
   .alt-services .service-card .card-body {
@@ -1716,7 +1718,7 @@ section,
 }
 
 .features .features-intro h2 {
-  font-size: 42px;
+  font-size: 4.2rem;
   font-weight: 700;
   margin-bottom: 20px;
   line-height: 1.2;
@@ -1724,12 +1726,12 @@ section,
 
 @media (max-width: 767px) {
   .features .features-intro h2 {
-    font-size: 32px;
+    font-size: 3.2rem;
   }
 }
 
 .features .features-intro p {
-  font-size: 18px;
+  font-size: 1.8rem;
   line-height: 1.7;
   color: color-mix(in srgb, var(--default-color), transparent 25%);
   margin-bottom: 40px;
@@ -1753,7 +1755,7 @@ section,
 }
 
 .features .features-intro .highlights-grid .highlight-item .highlight-number {
-  font-size: 28px;
+  font-size: 2.8rem;
   font-weight: 700;
   color: var(--accent-color);
   line-height: 1;
@@ -1761,7 +1763,7 @@ section,
 }
 
 .features .features-intro .highlights-grid .highlight-item .highlight-text {
-  font-size: 14px;
+  font-size: 1.4rem;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
   font-weight: 500;
 }
@@ -1786,7 +1788,7 @@ section,
 }
 
 .features .featured-image-container .floating-badge i {
-  font-size: 18px;
+  font-size: 1.8rem;
 }
 
 .features .features-grid {
@@ -1837,18 +1839,18 @@ section,
 }
 
 .features .features-grid .feature-box .feature-icon-wrapper i {
-  font-size: 32px;
+  font-size: 3.2rem;
   color: var(--contrast-color);
 }
 
 .features .features-grid .feature-box h4 {
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 600;
   margin-bottom: 15px;
 }
 
 .features .features-grid .feature-box p {
-  font-size: 15px;
+  font-size: 1.5rem;
   line-height: 1.6;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
   margin-bottom: 25px;
@@ -1873,7 +1875,7 @@ section,
 }
 
 .features .features-grid .feature-box .progress-label {
-  font-size: 13px;
+  font-size: 1.3rem;
   font-weight: 600;
   color: var(--accent-color);
 }
@@ -1883,14 +1885,14 @@ section,
 }
 
 .features .advanced-features-section h3 {
-  font-size: 36px;
+  font-size: 3.6rem;
   font-weight: 700;
   margin-bottom: 15px;
 }
 
 @media (max-width: 767px) {
   .features .advanced-features-section h3 {
-    font-size: 28px;
+    font-size: 2.8rem;
   }
 }
 
@@ -1932,13 +1934,13 @@ section,
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.8rem;
 }
 
 .features .advanced-features-section .advanced-feature-card .feature-header .feature-status-badge {
   padding: 6px 12px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 1.2rem;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -1969,13 +1971,13 @@ section,
 }
 
 .features .advanced-features-section .advanced-feature-card .feature-content h5 {
-  font-size: 22px;
+  font-size: 2.2rem;
   font-weight: 600;
   margin-bottom: 15px;
 }
 
 .features .advanced-features-section .advanced-feature-card .feature-content p {
-  font-size: 15px;
+  font-size: 1.5rem;
   line-height: 1.6;
   color: color-mix(in srgb, var(--default-color), transparent 25%);
   margin-bottom: 20px;
@@ -1991,14 +1993,14 @@ section,
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 14px;
+  font-size: 1.4rem;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
   margin-bottom: 8px;
 }
 
 .features .advanced-features-section .advanced-feature-card .feature-content .feature-benefits li i {
   color: #28a745;
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 
 .features .advanced-features-section .advanced-feature-card .feature-content .feature-benefits li:last-child {
@@ -2518,7 +2520,7 @@ section,
   cursor: pointer;
   display: inline-block;
   padding: 0;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 500;
   margin: 0 10px;
   line-height: 1;
@@ -2540,7 +2542,7 @@ section,
 
 @media (max-width: 575px) {
   .portfolio .portfolio-filters li {
-    font-size: 14px;
+    font-size: 1.4rem;
     margin: 0 5px;
   }
 }
@@ -2567,7 +2569,7 @@ section,
 }
 
 .portfolio .portfolio-content .portfolio-info h4 {
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 600;
   padding-right: 50px;
 }
@@ -2583,7 +2585,7 @@ section,
 
 .portfolio .portfolio-content .portfolio-info p {
   color: color-mix(in srgb, var(--default-color), transparent 30%);
-  font-size: 14px;
+  font-size: 1.4rem;
   margin-bottom: 0;
   padding-right: 50px;
 }
@@ -2737,11 +2739,11 @@ FIM TESTE HOVER
 --------------------------------------------------------------*/
 .faq .content h3 {
   font-weight: 400;
-  font-size: 34px;
+  font-size: 3.4rem;
 }
 
 .faq .content p {
-  font-size: 15px;
+  font-size: 1.5rem;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
 }
 
@@ -2760,7 +2762,7 @@ FIM TESTE HOVER
 
 .faq .faq-container .faq-item h3 {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 1.8rem;
   line-height: 24px;
   margin: 0 30px 0 0;
   transition: 0.3s;
@@ -2795,7 +2797,7 @@ FIM TESTE HOVER
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 0;
   transition: 0.3s;
   cursor: pointer;
@@ -2868,7 +2870,7 @@ FIM TESTE HOVER
   background-color: var(--accent-color);
   color: var(--contrast-color);
   padding: 6px 15px;
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 600;
   border-radius: 4px 0 0 4px;
   box-shadow: -2px 3px 8px rgba(0, 0, 0, 0.1);
@@ -2895,7 +2897,7 @@ FIM TESTE HOVER
   background-color: var(--contrast-color);
   color: var(--accent-color);
   border-radius: 50%;
-  font-size: 16px;
+  font-size: 1.6rem;
   transition: 0.3s;
 }
 
@@ -2910,7 +2912,7 @@ FIM TESTE HOVER
 }
 
 .team .member-info h4 {
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 10px;
   color: var(--heading-color);
@@ -2918,7 +2920,7 @@ FIM TESTE HOVER
 }
 
 .team .member-info p {
-  font-size: 15px;
+  font-size: 1.5rem;
   line-height: 1.6;
   margin-bottom: 0;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
@@ -2940,11 +2942,11 @@ FIM TESTE HOVER
   }
 
   .team .member-info h4 {
-    font-size: 18px;
+    font-size: 1.8rem;
   }
 
   .team .member-info p {
-    font-size: 14px;
+    font-size: 1.4rem;
   }
 }
 
@@ -3125,7 +3127,7 @@ FIM TESTE HOVER
 .portfolio-details .swiper-button-next:after {
   color: rgba(255, 255, 255, 0.8);
   background-color: rgba(0, 0, 0, 0.15);
-  font-size: 24px;
+  font-size: 2.4rem;
   border-radius: 50%;
   width: 48px;
   height: 48px;
@@ -3165,7 +3167,7 @@ FIM TESTE HOVER
 }
 
 .portfolio-details .portfolio-info h3 {
-  font-size: 22px;
+  font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 20px;
   padding-bottom: 20px;
@@ -3186,7 +3188,7 @@ FIM TESTE HOVER
 .portfolio-details .portfolio-info ul {
   list-style: none;
   padding: 0;
-  font-size: 15px;
+  font-size: 1.5rem;
 }
 
 .portfolio-details .portfolio-info ul li {
@@ -3199,7 +3201,7 @@ FIM TESTE HOVER
   text-transform: uppercase;
   font-weight: 400;
   color: color-mix(in srgb, var(--default-color), transparent 50%);
-  font-size: 14px;
+  font-size: 1.4rem;
 }
 
 .portfolio-details .portfolio-info .btn-visit {
@@ -3215,7 +3217,7 @@ FIM TESTE HOVER
 }
 
 .portfolio-details .portfolio-description h2 {
-  font-size: 26px;
+  font-size: 2.6rem;
   font-weight: 700;
   margin-bottom: 20px;
 }
@@ -3240,14 +3242,14 @@ FIM TESTE HOVER
 }
 
 .portfolio-details .portfolio-description .testimonial-item h3 {
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: bold;
   margin: 15px 0 5px 0;
   padding-top: 20px;
 }
 
 .portfolio-details .portfolio-description .testimonial-item h4 {
-  font-size: 14px;
+  font-size: 1.4rem;
   color: #6c757d;
   margin: 0;
 }
@@ -3255,7 +3257,7 @@ FIM TESTE HOVER
 .portfolio-details .portfolio-description .testimonial-item .quote-icon-left,
 .portfolio-details .portfolio-description .testimonial-item .quote-icon-right {
   color: color-mix(in srgb, var(--accent-color), transparent 50%);
-  font-size: 26px;
+  font-size: 2.6rem;
   line-height: 0;
 }
 
@@ -3293,7 +3295,7 @@ FIM TESTE HOVER
 }
 
 .service-details .service-box h4 {
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
   border-bottom: 2px solid color-mix(in srgb, var(--default-color), transparent 92%);
   padding-bottom: 15px;
@@ -3319,7 +3321,7 @@ FIM TESTE HOVER
 }
 
 .service-details .services-list a i {
-  font-size: 16px;
+  font-size: 1.6rem;
   margin-right: 8px;
   color: var(--accent-color);
 }
@@ -3357,7 +3359,7 @@ FIM TESTE HOVER
 }
 
 .service-details .download-catalog a i {
-  font-size: 24px;
+  font-size: 2.4rem;
   margin-right: 8px;
   color: var(--accent-color);
 }
@@ -3374,7 +3376,7 @@ FIM TESTE HOVER
 }
 
 .service-details .help-box .help-icon {
-  font-size: 48px;
+  font-size: 4.8rem;
 }
 
 .service-details .help-box h4,
@@ -3387,18 +3389,18 @@ FIM TESTE HOVER
 }
 
 .service-details h3 {
-  font-size: 26px;
+  font-size: 2.6rem;
   font-weight: 700;
 }
 
 .service-details p {
-  font-size: 15px;
+  font-size: 1.5rem;
 }
 
 .service-details ul {
   list-style: none;
   padding: 0;
-  font-size: 15px;
+  font-size: 1.5rem;
 }
 
 .service-details ul li {
@@ -3408,7 +3410,7 @@ FIM TESTE HOVER
 }
 
 .service-details ul i {
-  font-size: 20px;
+  font-size: 2rem;
   margin-right: 8px;
   color: var(--accent-color);
 }
@@ -3468,7 +3470,7 @@ FIM TESTE HOVER
 
 .hero-2 .carousel-container {
   position: absolute;
-  inset: -290px 64px 64px 64px;
+  inset: 64px 64px 64px 64px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -3533,7 +3535,7 @@ FIM TESTE HOVER
   background: var(--accent-color);
   font-family: var(--heading-font);
   font-weight: 500;
-  font-size: 15px;
+  font-size: 1.5rem;
   letter-spacing: 1px;
   display: inline-block;
   padding: 8px 32px;
@@ -3575,7 +3577,7 @@ FIM TESTE HOVER
 .hero-2 .carousel-control-next-icon,
 .hero-2 .carousel-control-prev-icon {
   background: none;
-  font-size: 32px;
+  font-size: 3.2rem;
   line-height: 1;
 }
 
