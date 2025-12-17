@@ -2057,13 +2057,13 @@ section,
 }
 
 .why-us .card-item h3 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
+  font-weight: 900;
   margin-bottom: 1rem;
 }
 
 .why-us .card-item p {
-  color: color-mix(in srgb, var(--default-color), transparent 25%);
-  font-size: 0.9rem;
+  font-size: 1.4rem;
   line-height: 1.6;
 }
 
@@ -2621,7 +2621,7 @@ section,
 }
 
 .pricing .pricing-card h3 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
 }
 
@@ -2685,17 +2685,17 @@ FIM TESTE HOVER
 }
 
 .pricing .pricing-card .price .period {
-  font-size: 1rem;
+  font-size: 1.9rem;
   color: color-mix(in srgb, var(--default-color), transparent 40%);
 }
 
 .pricing .pricing-card .description {
   margin-bottom: 2rem;
-  font-size: 0.975rem;
+  font-size: 1.6rem;
 }
 
 .pricing .pricing-card h4 {
-  font-size: 1.125rem;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
@@ -2709,12 +2709,13 @@ FIM TESTE HOVER
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
+  font-size: 1.4rem;
 }
 
 .pricing .pricing-card .features-list li i {
   color: var(--accent-color);
   margin-right: 0.75rem;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 .pricing .pricing-card .btn {
@@ -2743,8 +2744,7 @@ FIM TESTE HOVER
 }
 
 .faq .content p {
-  font-size: 1.5rem;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  font-size: 1.6rem;
 }
 
 .faq .faq-container .faq-item {
@@ -2961,10 +2961,15 @@ FIM TESTE HOVER
   height: 100%;
 }
 
+.contact p {
+  font-size: 1.6rem;
+}
+
 .contact .info-box h3 {
   color: var(--contrast-color);
   font-size: 2rem;
   margin-bottom: 1rem;
+  font-weight: 500;
 }
 
 @media (max-width: 767.98px) {
@@ -3028,7 +3033,7 @@ FIM TESTE HOVER
 
 .contact .info-item .content p {
   margin-bottom: 0.25rem;
-  font-size: 0.95rem;
+  font-size: 1.6rem;
 }
 
 .contact .info-item .content p:last-child {
@@ -3514,6 +3519,19 @@ FIM TESTE HOVER
 .hero-2 p {
   animation: fadeInDown 1s both 0.2s;
   font-size: 1.5rem;
+}
+
+
+/* Paragrafos maiores em telas grandes */
+@media (min-width: 992px) {
+
+  .hero-2 .carousel-container p { 
+    font-size: 2.2rem;
+  }
+
+  p {
+    font-size: 1.8rem;
+  }
 }
 
 @media (min-width: 1024px) {
