@@ -26,20 +26,6 @@ Tudo isso com uma interface moderna, animações suaves e uma experiência pensa
 
 Este projeto foi desenvolvido utilizando tecnologias modernas e amplamente adotadas no mercado:
 
-- **HTML5**  
-- **CSS3** (CSS Variables, Flexbox, Grid, animações e responsividade)  
-- **JavaScript (Vanilla)**  
-- **Bootstrap 5**  
-- **Bootstrap Icons**  
-
-### Bibliotecas e Plugins
-- AOS (Animate On Scroll)  
-- Swiper (carrosséis e sliders)  
-- GLightbox (galeria e lightbox)  
-- Isotope + ImagesLoaded (filtros e layout dinâmico)  
-- PureCounter (contadores animados)  
-
----
 
 ## 🎯 Principais Funcionalidades
 
@@ -64,8 +50,8 @@ Nosso trabalho vai além da criação de sites: entregamos **soluções completa
 - Design e branding estratégico  
 - Marketing digital e tráfego pago  
 - SEO técnico e de conteúdo  
-- Análise de dados e dashboards  
-- Automação de processos digitais  
+- Análise de dados e dashboards 
+- Automação de processos digitais 
 
 ---
 
@@ -80,17 +66,3 @@ A Versaliti é formada por profissionais com experiência sólida em tecnologia,
 Trabalhamos de forma colaborativa, com foco em qualidade, inovação e resultados mensuráveis.
 
 ---
-
-## 📂 Estrutura do Projeto
-
-```bash
-📁 assets
- ┣ 📁 css
- ┃ ┗ main.css
- ┣ 📁 js
- ┃ ┗ main.js
- ┣ 📁 img
- ┃ ┗ imagens do site
- ┣ 📁 script
- ┃ ┗ scripts personalizados
-📄 index.html
