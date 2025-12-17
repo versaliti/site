@@ -50,7 +50,13 @@
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <img src="assets/img/logo.png" alt="">
+        <picture>
+          <!-- Mobile: apenas o símbolo -->
+          <source srcset="assets/img/logo-simbolo.png" media="(max-width: 768px)">
+
+          <!-- Desktop: símbolo + Versaliti -->
+          <img src="assets/img/logo.png" alt="Versaliti">
+        </picture>
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -639,10 +645,10 @@
           <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
             <div class="featured-image-container">
               <img src="assets/img/features/features-3.webp" alt="Soluções Digitais" class="img-fluid">
-              <div class="floating-badge">
+              <!-- <div class="floating-badge">
                 <i class="bi bi-award"></i>
                 <span>Líder em Inovação</span>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
