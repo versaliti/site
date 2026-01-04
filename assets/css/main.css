@@ -49,7 +49,8 @@
 
 /* Base */
 html {
-  font-size: 62.5%; /* 1rem = 10px */
+  font-size: 62.5%;
+  /* 1rem = 10px */
 }
 
 /* Firefox */
@@ -3092,6 +3093,7 @@ FIM TESTE HOVER
 .contact .contact-form .form-control::placeholder,
 .contact .contact-form .form-select::placeholder {
   color: color-mix(in srgb, var(--default-color), transparent 50%);
+  font-size: 1.6rem;
 }
 
 .contact .contact-form .btn {
@@ -3103,6 +3105,7 @@ FIM TESTE HOVER
   align-items: center;
   gap: 0.5rem;
   transition: 0.3s;
+  font-size: 1.4rem;
 }
 
 .contact .contact-form .btn i {
@@ -3529,7 +3532,7 @@ FIM TESTE HOVER
 /* Paragrafos maiores em telas grandes */
 @media (min-width: 992px) {
 
-  .hero-2 .carousel-container p { 
+  .hero-2 .carousel-container p {
     font-size: 2.2rem;
   }
 
