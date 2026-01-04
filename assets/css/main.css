@@ -11,7 +11,7 @@
   --nav-font: "Poppins", sans-serif;
 
   /* Global Colors */
-  --background-color: #ccc;
+  --background-color: #cccccc73;
   --default-color: #555555;
   --heading-color: #0d3035;
   --accent-color: #036dda;
@@ -882,6 +882,8 @@ section,
   background-color: var(--accent-color);
   border-color: var(--accent-color);
   color: var(--contrast-color);
+  font-size: 1.4rem;
+  letter-spacing: .2rem;
 }
 
 .hero .hero-content .hero-btns .btn-primary:hover {
@@ -893,6 +895,8 @@ section,
   background-color: transparent;
   border: 2px solid var(--accent-color);
   color: var(--accent-color);
+  font-size: 1.4rem;
+  letter-spacing: .2rem;
 }
 
 .hero .hero-content .hero-btns .btn-outline:hover {
