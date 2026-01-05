@@ -3437,7 +3437,7 @@ FIM TESTE HOVER
 
 .hero-2 .carousel {
   width: 100%;
-  min-height: 100vh;
+  min-height: 87vh;
   padding: 0;
   margin: 0;
   background-color: var(--background-color);
@@ -3482,7 +3482,7 @@ FIM TESTE HOVER
 
 .hero-2 .carousel-container {
   position: absolute;
-  inset: 64px 64px 64px 64px;
+  inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -3519,7 +3519,7 @@ FIM TESTE HOVER
 
 @media (max-width: 768px) {
   .hero-2 h2 {
-    font-size: 2rem;
+    font-size: 4rem;
   }
 }
 
@@ -3536,9 +3536,6 @@ FIM TESTE HOVER
     font-size: 2.2rem;
   }
 
-  p {
-    font-size: 1.8rem;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -3551,7 +3548,7 @@ FIM TESTE HOVER
 
 @media (max-width: 767px) {
   .hero-2 p {
-    font-size: 1.2rem;
+    font-size: 2rem;
   }
 }
 
