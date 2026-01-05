@@ -3077,17 +3077,19 @@ FIM TESTE HOVER
 
 .contact .contact-form .form-control,
 .contact .contact-form .form-select {
-  padding: 0.875rem 1.25rem;
+  padding: 0.875rem 1.6rem;
   border-color: color-mix(in srgb, var(--default-color), transparent 90%);
   border-radius: 0.5rem;
   background-color: color-mix(in srgb, var(--surface-color) 90%, white 5%);
   color: var(--default-color);
+  font-size: 1.6rem;
 }
 
 .contact .contact-form .form-control:focus,
 .contact .contact-form .form-select:focus {
   box-shadow: none;
   border-color: var(--accent-color);
+  font-size: 1.6rem;
 }
 
 .contact .contact-form .form-control::placeholder,
