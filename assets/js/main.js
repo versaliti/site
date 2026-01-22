@@ -240,4 +240,32 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+
+
+  /* Mudar Cor Tema */
+
+  const toggleTheme = document.getElementById("theme-toggle");
+  const themeIcon = toggleTheme.querySelector("i");
+  const rootHtml = document.documentElement;
+
+  // Alternar tema (claro/escuro)
+  function changeTheme() {
+    const isDark = rootHtml.getAttribute("data-theme") === "dark";
+    const newTheme = isDark ? "light" : "dark";
+
+    rootHtml.setAttribute("data-theme", newTheme);
+
+    // troca do ícone
+    themeIcon.classList.toggle("bi-moon", newTheme === "dark");
+    themeIcon.classList.toggle("bi-sun", newTheme === "light");
+
+    // acessibilidade
+    toggleTheme.setAttribute("aria-pressed", String(newTheme === "dark"));
+  }
+
+  if (toggleTheme) {
+    toggleTheme.addEventListener("click", changeTheme);
+  }
+
+
 })();

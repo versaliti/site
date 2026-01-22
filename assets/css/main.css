@@ -2,7 +2,7 @@
    Design Tokens (Fonts + Colors + Nav + Behavior)
    ========================================================= */
 
-:root {
+:root[data-theme="dark"] {
   /* Fonts */
   --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
@@ -31,6 +31,11 @@
 
   /* Behavior */
   scroll-behavior: smooth;
+}
+
+
+:root[data-theme="light"] { 
+  --background-color: red;
 }
 
 /* Color presets */
@@ -688,10 +693,45 @@ h6 {
   }
 }
 
+
+/*--------------------------------------------------------------
+# Mudar Cor Tema
+--------------------------------------------------------------*/
+
+.theme-toggle {
+  border: none;
+  position: fixed;
+  visibility: hidden;
+  opacity: 1;
+  visibility: visible;
+  right: 15px;
+  bottom: 60px;
+  z-index: 99999;
+  background-color: var(--accent-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  transition: all 0.4s;
+}
+
+.theme-toggle i {
+  font-size: 2rem;
+  color: var(--contrast-color);
+  line-height: 0;
+}
+
+.theme-toggle:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  color: var(--contrast-color);
+}
+
+
+
 /*--------------------------------------------------------------
 # Scroll Top Button
 --------------------------------------------------------------*/
 .scroll-top {
+  border: none;
   position: fixed;
   visibility: hidden;
   opacity: 0;
