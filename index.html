@@ -83,7 +83,7 @@
   </header>
 
   <main class="main">
-    <section id="hero-2" class="hero-2 section dark-background">
+    <section id="hero-2" class="hero-2 section ">
 
       <div id="hero-2-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 
@@ -190,7 +190,7 @@
     </section><!-- /Clients Section -->
 
     <!-- About Section -->
-    <section id="sobre" class="about section light-background">
+    <section id="sobre" class="about section ">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -1136,7 +1136,7 @@
     </section>
  -->
     <!-- Pricing Section -->
-    <section id="planos" class="pricing section light-background">
+    <section id="planos" class="pricing section ">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -1402,7 +1402,7 @@
 
 
     <!-- Contact Section -->
-    <section id="contato" class="contact section light-background">
+    <section id="contato" class="contact section ">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -1523,7 +1523,7 @@
 
   </main>
 
-  <footer id="footer" class="footer dark-background">
+  <footer id="footer" class="footer ">
 
     <!-- Newsletter -->
     <!-- <div class="footer-newsletter">
@@ -1659,6 +1659,44 @@
 
   <script src="assets/js/script.js"></script>
 
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
 </body>
 
 </html>

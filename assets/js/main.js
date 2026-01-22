@@ -250,17 +250,17 @@
 
   // Alternar tema (claro/escuro)
   function changeTheme() {
-    const isDark = rootHtml.getAttribute("data-theme") === "dark";
-    const newTheme = isDark ? "light" : "dark";
+    const isDark = rootHtml.getAttribute("data-theme") === "light";
+    const newTheme = isDark ? "dark" : "light";
 
     rootHtml.setAttribute("data-theme", newTheme);
 
     // troca do ícone
-    themeIcon.classList.toggle("bi-moon", newTheme === "dark");
-    themeIcon.classList.toggle("bi-sun", newTheme === "light");
+    themeIcon.classList.toggle("bi-moon", newTheme === "light");
+    themeIcon.classList.toggle("bi-sun", newTheme === "dark");
 
     // acessibilidade
-    toggleTheme.setAttribute("aria-pressed", String(newTheme === "dark"));
+    toggleTheme.setAttribute("aria-pressed", String(newTheme === "light"));
   }
 
   if (toggleTheme) {

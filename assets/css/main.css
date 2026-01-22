@@ -1,22 +1,29 @@
 /* =========================================================
    Design Tokens (Fonts + Colors + Nav + Behavior)
    ========================================================= */
-
-:root[data-theme="dark"] {
+:root {
   /* Fonts */
   --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Raleway", sans-serif;
   --nav-font: "Poppins", sans-serif;
+}
 
+:root[data-theme="dark"] {
   /* Global Colors */
-  --background-color: #cccccc73;
+  --background-color: #0f0000;
   --default-color: #555555;
   --heading-color: #0d3035;
-  --accent-color: #036dda;
+  --accent-color: #1E87C8;
   --surface-color: #ffffff;
   --contrast-color: #ffffff;
+
+  --sec-background-color: #060606;
+  --sec-default-color: #ffffff;
+  --sec-heading-color: #ffffff;
+  --sec-surface-color: #252525;
+  --sec-contrast-color: #ffffff;
 
   /* Extras */
   --shadow: #060606a4;
@@ -27,35 +34,42 @@
   --nav-mobile-background-color: #ffffff;
   --nav-dropdown-background-color: #ffffff;
   --nav-dropdown-color: #555555;
-  --nav-dropdown-hover-color: #036dda;
-
-  /* Behavior */
-  scroll-behavior: smooth;
+  --nav-dropdown-hover-color: #1E87C8;
 }
 
-
-:root[data-theme="light"] { 
-  --background-color: red;
-}
-
-/* Color presets */
-.light-background {
-  --background-color: #f1f7fc;
+:root[data-theme="light"] {
+  /* Global Colors */
+  --background-color: #fafafa;
+  --default-color: #555555;
+  --heading-color: #0d3035;
+  --accent-color: #1E87C8;
   --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+
+  --sec-background-color: #f1f7fc;
+  --sec-surface-color: #ffffff;
+
+  /* Extras */
+  --shadow: #060606a4;
+
+  /* Nav Colors */
+  --nav-color: #0d3035;
+  --nav-hover-color: var(--accent-color);
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #555555;
+  --nav-dropdown-hover-color: #1E87C8;
+
 }
 
-.dark-background {
-  --background-color: #060606;
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
-  --surface-color: #252525;
-  --contrast-color: #ffffff;
-}
 
 /* Base */
 html {
-  font-size: 62.5%;
   /* 1rem = 10px */
+  font-size: 62.5%;
+
+  /* Behavior */
+  scroll-behavior: smooth;
 }
 
 /* Firefox */
@@ -169,7 +183,6 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: #0f0000;
   --default-color: #ffffff;
   --heading-color: #ffffff;
   color: var(--default-color);
@@ -233,7 +246,7 @@ h6 {
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
-  --background-color: #000000;
+  background-color: var(--background-color);
 }
 
 /*--------------------------------------------------------------
@@ -1066,6 +1079,10 @@ section,
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
+.about {
+  background: var(--sec-background-color);
+}
+
 .about .about-meta {
   color: var(--accent-color);
   font-weight: 600;
@@ -2998,6 +3015,10 @@ FIM TESTE HOVER
 /*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/
+.contact {
+  background: var(--sec-background-color);
+}
+
 .contact .info-box {
   background-color: var(--accent-color);
   color: var(--contrast-color);
@@ -3505,21 +3526,14 @@ FIM TESTE HOVER
   overflow: hidden;
 }
 
-.hero-2 .carousel-item:before {
-  content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 30%);
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-}
-
 .hero-2 .carousel-item::before {
   content: "";
   background-color: color-mix(in srgb,
       var(--background-color),
-      transparent 30%);
+      transparent 50%);
   position: absolute;
   inset: 0;
+  z-index: 2;
 }
 
 .hero-2 .carousel-container {
