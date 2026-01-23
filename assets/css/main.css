@@ -13,8 +13,9 @@
 :root[data-theme="dark"] {
   /* Global Colors */
   --background-color: #0f0000;
-  --default-color: #555555;
+  --default-color: #ececec;
   --heading-color: #0d3035;
+  --sec-heading-color: #f3f3f3;
   --accent-color: #1E87C8;
   --surface-color: #ffffff;
   --contrast-color: #ffffff;
@@ -35,15 +36,18 @@
   --nav-dropdown-background-color: #ffffff;
   --nav-dropdown-color: #555555;
   --nav-dropdown-hover-color: #1E87C8;
+
+  --background-header: #0f0000e2;
 }
 
 :root[data-theme="light"] {
   /* Global Colors */
   --background-color: #fafafa;
   --default-color: #555555;
-  --heading-color: #0d3035;
+  --heading-color: #1E87C8;
+  --sec-heading-color: #1E87C8;
   --accent-color: #1E87C8;
-  --surface-color: #ffffff;
+  --surface-color: #0f0000;
   --contrast-color: #ffffff;
 
   --sec-background-color: #f1f7fc;
@@ -60,6 +64,7 @@
   --nav-dropdown-color: #555555;
   --nav-dropdown-hover-color: #1E87C8;
 
+  --background-header: #fffffff6;
 }
 
 
@@ -127,69 +132,24 @@ h6 {
   font-family: var(--heading-font);
 }
 
-/* PHP Email Form Messages
-------------------------------*/
-.php-email-form .error-message {
-  display: none;
-  background: #df1529;
-  color: #ffffff;
-  text-align: left;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
-}
-
-.php-email-form .sent-message {
-  display: none;
-  color: #ffffff;
-  background: #059652;
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
-}
-
-.php-email-form .loading {
-  display: none;
-  background: var(--surface-color);
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
-}
-
-.php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid var(--accent-color);
-  border-top-color: var(--surface-color);
-  animation: php-email-form-loading 1s linear infinite;
-}
-
-@keyframes php-email-form-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 /*--------------------------------------------------------------
 # Global Header
 --------------------------------------------------------------*/
+
+/* Estado Inicial (Topo da página) */
 .header {
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
-  color: var(--default-color);
-  background-color: var(--background-color);
+  position: fixed;
+  /* Mantém sempre visível */
+  top: 0;
+  left: 0;
+  right: 0;
   padding: 15px 0;
-  transition: all 0.5s;
+  transition: all 0.5s ease;
   z-index: 997;
+  /* Truque principal: fundo transparente no início */
+  background-color: transparent;
+  --default-color: #ffffff;
+  color: var(--default-color);
 }
 
 .header .logo {
@@ -246,8 +206,10 @@ h6 {
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
-  background-color: var(--background-color);
+  background-color: var(--background-header);
 }
+
+
 
 /*--------------------------------------------------------------
 # Navigation Menu
@@ -513,162 +475,6 @@ h6 {
   .mobile-nav-active .navmenu>ul {
     display: block;
   }
-}
-
-/*--------------------------------------------------------------
-# Global Footer
---------------------------------------------------------------*/
-.footer {
-  color: var(--default-color);
-  background-color: var(--background-color);
-  font-size: 1.4rem;
-  position: relative;
-}
-
-.footer .footer-newsletter {
-  background-color: color-mix(in srgb, var(--default-color), transparent 97%);
-  padding: 50px 0;
-}
-
-.footer .footer-newsletter h4 {
-  font-size: 2.4rem;
-}
-
-.footer .footer-newsletter .newsletter-form {
-  margin-top: 30px;
-  margin-bottom: 15px;
-  padding: 6px 8px;
-  position: relative;
-  border-radius: 4px;
-  background-color: var(--surface-color);
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
-  display: flex;
-  transition: 0.3s;
-  border-radius: 50px;
-}
-
-.footer .footer-newsletter .newsletter-form:focus-within {
-  border-color: var(--accent-color);
-}
-
-.footer .footer-newsletter .newsletter-form input[type="email"] {
-  border: 0;
-  padding: 4px;
-  width: 100%;
-  background-color: var(--surface-color);
-  color: var(--default-color);
-}
-
-.footer .footer-newsletter .newsletter-form input[type="email"]:focus-visible {
-  outline: none;
-}
-
-.footer .footer-newsletter .newsletter-form input[type="submit"] {
-  border: 0;
-  font-size: 1.6rem;
-  padding: 0 20px;
-  margin: -7px -8px -7px 0;
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  transition: 0.3s;
-  border-radius: 50px;
-}
-
-.footer .footer-newsletter .newsletter-form input[type="submit"]:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
-}
-
-.footer .footer-top {
-  padding-top: 50px;
-}
-
-.footer .social-links a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
-  font-size: 1.6rem;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin-right: 10px;
-  transition: 0.3s;
-}
-
-.footer .social-links a:hover {
-  color: var(--accent-color);
-  border-color: var(--accent-color);
-}
-
-.footer h4 {
-  font-size: 1.6rem;
-  font-weight: bold;
-  position: relative;
-  padding-bottom: 12px;
-}
-
-.footer .footer-links {
-  margin-bottom: 30px;
-}
-
-.footer .footer-links ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer .footer-links ul i {
-  margin-right: 3px;
-  font-size: 1.2rem;
-  line-height: 0;
-  color: var(--accent-color);
-}
-
-.footer .footer-links ul li {
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-}
-
-.footer .footer-links ul li:first-child {
-  padding-top: 0;
-}
-
-.footer .footer-links ul a {
-  display: inline-block;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  line-height: 1;
-}
-
-.footer .footer-links ul a:hover {
-  color: var(--accent-color);
-}
-
-.footer .footer-about a {
-  color: var(--heading-color);
-  font-size: 2.4rem;
-  font-weight: 600;
-  font-family: var(--heading-font);
-}
-
-.footer .footer-contact p {
-  margin-bottom: 5px;
-}
-
-.footer .copyright {
-  padding: 25px 0;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-}
-
-.footer .copyright p {
-  margin-bottom: 0;
-}
-
-.footer .credits {
-  margin-top: 6px;
-  font-size: 1.3rem;
 }
 
 /*--------------------------------------------------------------
@@ -3530,7 +3336,7 @@ FIM TESTE HOVER
   content: "";
   background-color: color-mix(in srgb,
       var(--background-color),
-      transparent 50%);
+      transparent 45%);
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -3559,6 +3365,7 @@ FIM TESTE HOVER
 
 .hero-2 h2 {
   margin-bottom: 30px;
+  color: var(--sec-heading-color);
   font-size: 3rem;
   font-weight: 700;
   animation: fadeInDown 1s both;
@@ -3576,12 +3383,15 @@ FIM TESTE HOVER
 @media (max-width: 768px) {
   .hero-2 h2 {
     font-size: 4rem;
+    margin: 0 12%;
   }
 }
 
 .hero-2 p {
   animation: fadeInDown 1s both 0.2s;
   font-size: 1.5rem;
+  margin: 0 12%;
+  color: var();
 }
 
 
@@ -3689,4 +3499,169 @@ FIM TESTE HOVER
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    padding-inline: 5%;
+  }
+}
+
+
+
+/*--------------------------------------------------------------
+# Global Footer
+--------------------------------------------------------------*/
+.footer {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-size: 1.4rem;
+  position: relative;
+}
+
+.footer .footer-newsletter {
+  background-color: color-mix(in srgb, var(--default-color), transparent 97%);
+  padding: 50px 0;
+}
+
+.footer .footer-newsletter h4 {
+  font-size: 2.4rem;
+}
+
+.footer .footer-newsletter .newsletter-form {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  padding: 6px 8px;
+  position: relative;
+  border-radius: 4px;
+  background-color: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  transition: 0.3s;
+  border-radius: 50px;
+}
+
+.footer .footer-newsletter .newsletter-form:focus-within {
+  border-color: var(--accent-color);
+}
+
+.footer .footer-newsletter .newsletter-form input[type="email"] {
+  border: 0;
+  padding: 4px;
+  width: 100%;
+  background-color: var(--surface-color);
+  color: var(--default-color);
+}
+
+.footer .footer-newsletter .newsletter-form input[type="email"]:focus-visible {
+  outline: none;
+}
+
+.footer .footer-newsletter .newsletter-form input[type="submit"] {
+  border: 0;
+  font-size: 1.6rem;
+  padding: 0 20px;
+  margin: -7px -8px -7px 0;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  transition: 0.3s;
+  border-radius: 50px;
+}
+
+.footer .footer-newsletter .newsletter-form input[type="submit"]:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+.footer .footer-top {
+  padding-top: 50px;
+}
+
+.footer .social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
+  font-size: 1.6rem;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+.footer .social-links a:hover {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.footer h4 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.footer .footer-links {
+  margin-bottom: 30px;
+}
+
+.footer .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .footer-links ul i {
+  margin-right: 3px;
+  font-size: 1.2rem;
+  line-height: 0;
+  color: var(--accent-color);
+}
+
+.footer .footer-links ul li {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.footer .footer-links ul li:first-child {
+  padding-top: 0;
+}
+
+.footer .footer-links ul a {
+  display: inline-block;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  line-height: 1;
+}
+
+.footer .footer-links ul a:hover {
+  color: var(--accent-color);
+}
+
+.footer .footer-about a {
+  color: var(--heading-color);
+  font-size: 2.4rem;
+  font-weight: 600;
+  font-family: var(--heading-font);
+}
+
+.footer .footer-contact p {
+  margin-bottom: 5px;
+}
+
+.footer .copyright {
+  padding: 25px 0;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.footer .copyright p {
+  margin-bottom: 0;
+}
+
+.footer .credits {
+  margin-top: 6px;
+  font-size: 1.3rem;
 }
