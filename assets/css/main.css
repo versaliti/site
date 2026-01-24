@@ -2665,6 +2665,7 @@ FIM TESTE HOVER
 .faq .faq-container .faq-item .faq-content p {
   margin-bottom: 0;
   overflow: hidden;
+  color: var(--sec-surface-color);
 }
 
 .faq .faq-container .faq-item .faq-toggle {
@@ -3383,6 +3384,11 @@ FIM TESTE HOVER
   .hero-2 h2 {
     font-size: 4.5rem;
   }
+
+  .hero-2 p {
+    font-size: 2rem;
+    color: red;
+  }
 }
 
 
@@ -3396,9 +3402,12 @@ FIM TESTE HOVER
 
 .hero-2 p {
   animation: fadeInDown 1s both 0.2s;
-  font-size: 1.5rem;
   margin: 0 12%;
   color: var(--sec-default-color);
+  text-transform: uppercase;
+  hyphens: manual;
+  letter-spacing: 0.5px;
+  
 }
 
 
@@ -3419,11 +3428,7 @@ FIM TESTE HOVER
   }
 }
 
-@media (max-width: 767px) {
-  .hero-2 p {
-    font-size: 2rem;
-  }
-}
+
 
 .hero-2 .btn-get-started {
   color: var(--contrast-color);
