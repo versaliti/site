@@ -2735,7 +2735,9 @@ FIM TESTE HOVER
   width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: none;
   transition: transform 0.5s ease;
+
 }
 
 .team .role-badge {
@@ -2798,7 +2800,7 @@ FIM TESTE HOVER
   font-size: 1.5rem;
   line-height: 1.6;
   margin-bottom: 0;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: color-mix(in srgb, var(--sec-surface-color), transparent 30%);
 }
 
 @media (max-width: 992px) {
@@ -2945,17 +2947,17 @@ FIM TESTE HOVER
 }
 
 .contact .contact-form p {
-  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  color: color-mix(in srgb, var(--sec-surface-color), transparent 25%);
   margin-bottom: 2rem;
 }
 
 .contact .contact-form .form-control,
 .contact .contact-form .form-select {
   padding: 0.875rem 1.6rem;
-  border-color: color-mix(in srgb, var(--default-color), transparent 90%);
+  border-color: color-mix(in srgb, var(--sec-surface-color), transparent 90%);
   border-radius: 0.5rem;
   background-color: color-mix(in srgb, var(--surface-color) 90%, white 5%);
-  color: var(--default-color);
+  color: var(--sec-surface-color);
   font-size: 1.6rem;
 }
 
@@ -2968,13 +2970,13 @@ FIM TESTE HOVER
 
 .contact .contact-form .form-control::placeholder,
 .contact .contact-form .form-select::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
+  color: color-mix(in srgb, var(--sec-surface-color), transparent 50%);
   font-size: 1.6rem;
 }
 
 .contact .contact-form .btn {
   background-color: var(--accent-color);
-  color: var(--contrast-color);
+  color: var(--sec-surface-color);
   padding: 1rem 2rem;
   border-radius: 2rem;
   display: inline-flex;
@@ -3405,9 +3407,7 @@ FIM TESTE HOVER
   margin: 0 12%;
   color: var(--sec-default-color);
   text-transform: uppercase;
-  hyphens: manual;
   letter-spacing: 0.5px;
-  
 }
 
 
