@@ -13,8 +13,9 @@
 :root[data-theme="dark"] {
   /* Global Colors */
   --background-color: #0f0000;
-  --default-color: #ececec;
-  --heading-color: #0d3035;
+  --default-color: #f5f5f5;
+  --sec-default-color: #ececec;
+  --heading-color: #1E87C8;
   --sec-heading-color: #f3f3f3;
   --accent-color: #1E87C8;
   --surface-color: #ffffff;
@@ -44,14 +45,15 @@
   /* Global Colors */
   --background-color: #fafafa;
   --default-color: #555555;
+  --sec-default-color: #050505;
   --heading-color: #1E87C8;
   --sec-heading-color: #1E87C8;
   --accent-color: #1E87C8;
-  --surface-color: #0f0000;
+  --surface-color: #ffffff;
   --contrast-color: #ffffff;
 
   --sec-background-color: #f1f7fc;
-  --sec-surface-color: #ffffff;
+  --sec-surface-color: #050505;
 
   /* Extras */
   --shadow: #060606a4;
@@ -969,7 +971,7 @@ section,
 }
 
 .about .contact-info .contact-label {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: color-mix(in srgb, var(--sec-surface-color), transparent 30%);
   font-size: 1.25rem;
   margin: 0;
 }
@@ -1291,7 +1293,7 @@ section,
 }
 
 .services .service-item p {
-  color: var(--default-color);
+  color: var(--sec-surface-color);
   margin-bottom: 0;
   transition: color 0.3s ease;
 }
@@ -1328,9 +1330,9 @@ section,
   transform: scale(1.1);
 }
 
-.services .service-item:hover p {
+/* .services .service-item:hover p {
   color: color-mix(in srgb, var(--default-color), transparent 20%);
-}
+} */
 
 .services .service-item:hover .card-action {
   opacity: 1;
@@ -1450,7 +1452,7 @@ section,
 .alt-services .service-card .card-body p {
   font-size: 1.6rem;
   line-height: 1.6;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: var(--sec-surface-color);
   margin-bottom: 20px;
   text-align: center;
 }
@@ -1601,7 +1603,7 @@ section,
 .features .features-intro p {
   font-size: 1.8rem;
   line-height: 1.7;
-  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  color: var(--default-color);
   margin-bottom: 40px;
 }
 
@@ -1720,7 +1722,7 @@ section,
 .features .features-grid .feature-box p {
   font-size: 1.5rem;
   line-height: 1.6;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: color-mix(in srgb, var(--sec-surface-color), transparent 30%);
   margin-bottom: 25px;
 }
 
@@ -1847,7 +1849,7 @@ section,
 .features .advanced-features-section .advanced-feature-card .feature-content p {
   font-size: 1.5rem;
   line-height: 1.6;
-  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  color: var(--sec-surface-color);
   margin-bottom: 20px;
 }
 
@@ -1862,7 +1864,7 @@ section,
   align-items: center;
   gap: 10px;
   font-size: 1.4rem;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: var(--sec-surface-color);
   margin-bottom: 8px;
 }
 
@@ -1933,6 +1935,7 @@ section,
 .why-us .card-item p {
   font-size: 1.4rem;
   line-height: 1.6;
+  color: var(--sec-surface-color);
 }
 
 .why-us .image-wrapper img {
@@ -2472,6 +2475,7 @@ section,
   border-radius: 1rem;
   transition: all 0.3s ease;
   position: relative;
+  color: var(--sec-surface-color);
 }
 
 .pricing .pricing-card .popular-badge {
@@ -2483,7 +2487,7 @@ section,
   color: var(--accent-color);
   padding: 0.5rem 1rem;
   border-radius: 2rem;
-  font-size: 0.875rem;
+  font-size: 1.2rem;
   font-weight: 600;
   box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.08);
 }
@@ -2537,6 +2541,7 @@ FIM TESTE HOVER
 
 .pricing .pricing-card .price {
   margin-bottom: 1.5rem;
+  
 }
 
 .pricing .pricing-card .price .currency {
@@ -2554,7 +2559,7 @@ FIM TESTE HOVER
 
 .pricing .pricing-card .price .period {
   font-size: 1.9rem;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  color: color-mix(in srgb, var(--sec-surface-color), transparent 40%);
 }
 
 .pricing .pricing-card .description {
@@ -2600,6 +2605,7 @@ FIM TESTE HOVER
   background: var(--accent-color);
   border: none;
   color: var(--contrast-color);
+  font-size: 1.4rem;
 }
 
 
@@ -3384,6 +3390,7 @@ FIM TESTE HOVER
   .hero-2 h2 {
     font-size: 4rem;
     margin: 0 12%;
+    margin-bottom: 5%;
   }
 }
 
@@ -3391,7 +3398,7 @@ FIM TESTE HOVER
   animation: fadeInDown 1s both 0.2s;
   font-size: 1.5rem;
   margin: 0 12%;
-  color: var();
+  color: var(--sec-default-color);
 }
 
 
@@ -3514,7 +3521,7 @@ FIM TESTE HOVER
 # Global Footer
 --------------------------------------------------------------*/
 .footer {
-  color: var(--default-color);
+  color: var(--sec-default-color);
   background-color: var(--background-color);
   font-size: 1.4rem;
   position: relative;
@@ -3633,7 +3640,7 @@ FIM TESTE HOVER
 
 .footer .footer-links ul a {
   display: inline-block;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: color-mix(in srgb, var(--sec-default-color), transparent 20%);
   line-height: 1;
 }
 
