@@ -70,7 +70,6 @@ Nosso trabalho vai além da criação de sites: entregamos **soluções completa
 - SEO técnico e de conteúdo
 - Análise de dados e dashboards
 - Automação de processos digitais
-=======
 - Desenvolvimento de sites e plataformas digitais  
 - Design e branding estratégico  
 - Marketing digital e tráfego pago  
