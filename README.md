@@ -1,7 +1,5 @@
 # Versaliti 🚀
 
-=======
-# Versaliti 🚀  
 
 ### Soluções Web, Marketing Digital e Estratégia em Dados
 
