@@ -1,7 +1,5 @@
 # Versaliti 🚀
 
-=======
-# Versaliti 🚀  
 
 ### Soluções Web, Marketing Digital e Estratégia em Dados
 
@@ -21,7 +19,6 @@ O site da Versaliti apresenta de forma clara e objetiva:
 - Planos e modelos de contratação
 - Diferenciais e metodologia de trabalho
 - Equipe e canais de contato
-=======
 - Quem somos e nosso posicionamento no mercado  
 - Portfólio de projetos desenvolvidos  
 - Serviços oferecidos  
@@ -45,7 +42,6 @@ Este projeto foi desenvolvido utilizando tecnologias modernas e amplamente adota
 - Seções modulares e reutilizáveis
 - Portfólio filtrável por categoria
 - Animações leves e performáticas
-- Formulários integráveis com serviços externos (ex: Formspree)
 =======
 
 ## 🎯 Principais Funcionalidades
@@ -74,7 +70,6 @@ Nosso trabalho vai além da criação de sites: entregamos **soluções completa
 - SEO técnico e de conteúdo
 - Análise de dados e dashboards
 - Automação de processos digitais
-=======
 - Desenvolvimento de sites e plataformas digitais  
 - Design e branding estratégico  
 - Marketing digital e tráfego pago  
