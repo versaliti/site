@@ -21,7 +21,6 @@ O site da Versaliti apresenta de forma clara e objetiva:
 - Planos e modelos de contratação
 - Diferenciais e metodologia de trabalho
 - Equipe e canais de contato
-=======
 - Quem somos e nosso posicionamento no mercado  
 - Portfólio de projetos desenvolvidos  
 - Serviços oferecidos  
@@ -45,7 +44,6 @@ Este projeto foi desenvolvido utilizando tecnologias modernas e amplamente adota
 - Seções modulares e reutilizáveis
 - Portfólio filtrável por categoria
 - Animações leves e performáticas
-- Formulários integráveis com serviços externos (ex: Formspree)
 =======
 
 ## 🎯 Principais Funcionalidades
