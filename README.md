@@ -57,7 +57,6 @@ Este projeto foi desenvolvido utilizando tecnologias modernas e amplamente adota
 - Portfólio filtrável por categoria  
 - Animações leves e performáticas  
 - Formulários integráveis com serviços externos (ex: Formspree)  
->>>>>>> 70894eebf755eb89a80b00313357f2739e95d114
 - Estrutura preparada para **SEO e acessibilidade**
 
 ---

@@ -2976,7 +2976,7 @@ FIM TESTE HOVER
 
 .contact .contact-form .btn {
   background-color: var(--accent-color);
-  color: var(--sec-surface-color);
+  color: var(--surface-color);
   padding: 1rem 2rem;
   border-radius: 2rem;
   display: inline-flex;
