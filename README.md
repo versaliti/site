@@ -42,7 +42,6 @@ Este projeto foi desenvolvido utilizando tecnologias modernas e amplamente adota
 - Seções modulares e reutilizáveis
 - Portfólio filtrável por categoria
 - Animações leves e performáticas
-=======
 
 ## 🎯 Principais Funcionalidades
 
@@ -51,7 +50,7 @@ Este projeto foi desenvolvido utilizando tecnologias modernas e amplamente adota
 - Carrossel hero com chamadas estratégicas  
 - Seções modulares e reutilizáveis  
 - Portfólio filtrável por categoria  
-- Animações leves e performáticas  
+- Animações leves e performáticas
 - Formulários integráveis com serviços externos (ex: Formspree)  
 - Estrutura preparada para **SEO e acessibilidade**
 
