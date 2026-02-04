@@ -12,7 +12,7 @@
 
 :root[data-theme="dark"] {
   /* Global Colors */
-  --background-color: #0f0000;
+  --background-color: #00080f;
   --default-color: #f5f5f5;
   --sec-default-color: #ececec;
   --heading-color: #1E87C8;
@@ -2544,7 +2544,7 @@ FIM TESTE HOVER
 
 .pricing .pricing-card .price {
   margin-bottom: 1.5rem;
-  
+
 }
 
 .pricing .pricing-card .price .currency {
@@ -3680,3 +3680,183 @@ FIM TESTE HOVER
   margin-top: 6px;
   font-size: 1.3rem;
 }
+
+
+/* Assistente IA */
+/* ===== Assistente IA (MVP) ===== */
+.ai-fab {
+  position: fixed;
+  right: 15px;
+  bottom: 105px;
+  /* acima do scroll-top e do toggle tema */
+  z-index: 99998;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .18);
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.ai-fab:hover {
+  transform: translateY(-2px);
+}
+
+.ai-fab i {
+  font-size: 2rem;
+}
+
+.bi-robot {
+  font-size: 1.8rem;
+}
+
+.ai-modal {
+  background: var(--background-color);
+  color: var(--default-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.ai-header {
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.ai-header .modal-title {
+  color: var(--heading-color);
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.ai-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent-color), transparent 85%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-color);
+}
+
+.ai-subtitle {
+  color: color-mix(in srgb, var(--default-color), transparent 35%);
+  font-size: 1.5rem;
+}
+
+.ai-chat {
+  height: 360px;
+  overflow: auto;
+  padding: 14px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--surface-color), transparent 0%);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+}
+
+.ai-msg {
+  display: flex;
+  margin-bottom: 12px;
+  gap: 10px;
+}
+
+.ai-msg .bubble {
+  max-width: 80%;
+  padding: 10px 12px;
+  border-radius: 14px;
+  font-size: 1.5rem;
+  line-height: 1.45;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+}
+
+.ai-msg.bot .bubble {
+  background: color-mix(in srgb, var(--sec-background-color), transparent 10%);
+}
+
+.ai-msg.user {
+  justify-content: flex-end;
+}
+
+.ai-msg.user .bubble {
+  background: color-mix(in srgb, var(--accent-color), transparent 80%);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 60%);
+}
+
+.ai-quick-replies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 0 6px;
+}
+
+.ai-quick-replies button {
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 60%);
+  background: transparent;
+  color: var(--accent-color);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 1.4rem;
+  transition: .2s ease-in-out;
+  cursor: pointer;
+}
+
+.ai-quick-replies button:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.ai-input-area {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.ai-input-area .form-control {
+  font-size: 1.6rem;
+}
+
+.ai-input-area .btn {
+  font-size: 1.5rem;
+  background: var(--accent-color);
+}
+
+.ai-disclaimer {
+  display: block;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: color-mix(in srgb, var(--default-color), transparent 45%);
+}
+
+
+/* ===== Ajuste do botão fechar (modal IA) para dark/light ===== */
+
+/* Estado padrão (light) */
+:root[data-theme="light"] .ai-modal .btn-close {
+  filter: invert(0);
+  opacity: 0.8;
+  margin-right: 5px;
+}
+
+/* Estado dark */
+:root[data-theme="dark"] .ai-modal .btn-close {
+  filter: invert(1);
+  opacity: 0.85;
+  margin-right: 5px;
+}
+
+/* Hover suave */
+.ai-modal .btn-close:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Remove fundo estranho em alguns browsers */
+.ai-modal .btn-close {
+  background-color: transparent;
+}
+
+
+
+/* ===== /Assistente IA (MVP) ===== */
