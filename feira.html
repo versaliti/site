@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="light">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Oferta da Feira | Versaliti</title>
+
+  <!-- Reaproveita sua identidade -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <style>
+    /* ====== Feira: só o necessário (encaixa no seu design system) ====== */
+    .feira-wrap {
+      padding-top: 120px;
+      padding-bottom: 60px;
+      font-family: var(--default-font);
+    }
+
+    .feira-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 5%
+    }
+
+    .feira-hero {
+      border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+      border-radius: 24px;
+      padding: 40px 28px;
+      background:
+        radial-gradient(800px 500px at 10% 20%, color-mix(in srgb, var(--accent-color), transparent 88%), transparent 60%),
+        radial-gradient(600px 400px at 90% 10%, color-mix(in srgb, var(--heading-color), transparent 90%), transparent 55%),
+        var(--surface-color);
+      box-shadow: 0 25px 50px color-mix(in srgb, var(--default-color), transparent 93%),
+        0 0 0 1px color-mix(in srgb, var(--accent-color), transparent 90%);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .feira-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), transparent 15%));
+      color: var(--contrast-color);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-family: var(--nav-font);
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      box-shadow: 0 12px 24px color-mix(in srgb, var(--accent-color), transparent 85%);
+      margin-bottom: 18px;
+    }
+
+    .feira-hero h1 {
+      margin: 0 0 10px 0;
+      font-family: var(--heading-font);
+      font-size: 3.6rem;
+      line-height: 1.1;
+      font-weight: 900;
+      color: var(--heading-color);
+      text-align: left;
+    }
+
+    .feira-hero p {
+      margin: 0 0 18px 0;
+      font-family: var(--default-font);
+      font-size: 1.7rem;
+      color: color-mix(in srgb, var(--default-color), transparent 18%);
+    }
+
+    .feira-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 14px 0 24px 0
+    }
+
+    .pill {
+      border: 1px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+      background: color-mix(in srgb, var(--accent-color), transparent 92%);
+      color: var(--accent-color);
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-family: var(--nav-font);
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .feira-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px
+    }
+
+    .btn-feira {
+      border: none;
+      cursor: pointer;
+      padding: 14px 18px;
+      border-radius: 14px;
+      font-family: var(--heading-font);
+      font-weight: 800;
+      font-size: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: .2s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary-feira {
+      background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), transparent 12%));
+      color: var(--contrast-color);
+      box-shadow: 0 16px 32px color-mix(in srgb, var(--accent-color), transparent 82%);
+    }
+
+    .btn-primary-feira:hover {
+      transform: translateY(-2px)
+    }
+
+    .btn-outline-feira {
+      background: transparent;
+      border: 2px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+      color: var(--accent-color);
+    }
+
+    .btn-outline-feira:hover {
+      background: color-mix(in srgb, var(--accent-color), transparent 94%)
+    }
+
+    .feira-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      margin-top: 18px
+    }
+
+    @media (max-width: 900px) {
+      .feira-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .feira-card {
+      background: var(--surface-color);
+      border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 12px 26px color-mix(in srgb, var(--default-color), transparent 94%);
+    }
+
+    .cupom-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px dashed color-mix(in srgb, var(--accent-color), transparent 35%);
+      background: color-mix(in srgb, var(--accent-color), transparent 92%);
+      margin-top: 10px;
+    }
+
+    .cupom-code {
+      font-family: var(--heading-font);
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: var(--heading-color);
+      letter-spacing: .12em;
+      user-select: all;
+      word-break: break-word;
+    }
+
+    .btn-mini {
+      border: none;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-family: var(--nav-font);
+      background: var(--accent-color);
+      color: var(--contrast-color);
+      cursor: pointer;
+      font-weight: 800;
+      transition: .2s ease;
+    }
+
+    .btn-mini:hover {
+      transform: translateY(-1px)
+    }
+
+    .feira-note {
+      font-family: var(--default-font);
+      font-size: 1.3rem;
+      color: color-mix(in srgb, var(--default-color), transparent 35%);
+      margin-top: 10px
+    }
+
+    .section-title-feira {
+      margin: 38px 0 14px 0
+    }
+
+    .section-title-feira h2 {
+      font-family: var(--heading-font);
+      font-size: 2.8rem;
+      margin: 0;
+      color: var(--heading-color);
+      font-weight: 800;
+    }
+
+    .section-title-feira p {
+      font-family: var(--default-font);
+      margin: 8px 0 0 0;
+      font-size: 1.6rem;
+      color: color-mix(in srgb, var(--default-color), transparent 25%)
+    }
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px
+    }
+
+    @media (max-width: 980px) {
+      .plans {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .plan {
+      background: var(--surface-color);
+      border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+      border-radius: 18px;
+      padding: 22px;
+      position: relative;
+      transition: .2s ease;
+    }
+
+    .plan:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px color-mix(in srgb, var(--default-color), transparent 92%)
+    }
+
+    .plan.featured {
+      border-color: color-mix(in srgb, var(--accent-color), transparent 35%);
+      box-shadow: 0 24px 50px color-mix(in srgb, var(--accent-color), transparent 88%);
+    }
+
+    .plan .tag {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--accent-color);
+      color: var(--contrast-color);
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-family: var(--nav-font);
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+    }
+
+    .plan h3 {
+      margin: 0 0 8px 0;
+      font-family: var(--heading-font);
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: var(--heading-color)
+    }
+
+    .price {
+      font-family: var(--heading-font);
+      font-size: 3.0rem;
+      font-weight: 900;
+      color: var(--accent-color);
+      margin: 12px 0
+    }
+
+    .price small {
+      font-family: var(--default-font);
+      font-size: 1.4rem;
+      color: color-mix(in srgb, var(--default-color), transparent 35%);
+      font-weight: 700
+    }
+
+    .list {
+      margin: 0;
+      padding: 0;
+      list-style: none
+    }
+
+    .list li {
+      font-family: var(--default-font);
+      font-size: 1.45rem;
+      margin: 10px 0;
+      color: color-mix(in srgb, var(--default-color), transparent 18%)
+    }
+
+    .list li b {
+      color: var(--heading-color)
+    }
+
+    .faq {
+      margin-top: 14px
+    }
+
+    details {
+      background: var(--surface-color);
+      border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-family: var(--heading-font);
+      font-weight: 900;
+      color: var(--heading-color);
+      font-size: 1.55rem
+    }
+
+    details p {
+      margin: 10px 0 0 0;
+      font-family: var(--default-font);
+      font-size: 1.5rem;
+      color: color-mix(in srgb, var(--default-color), transparent 18%)
+    }
+
+    .sticky-cta {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: color-mix(in srgb, var(--background-color), transparent 0%);
+      border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+      padding: 12px 0;
+      z-index: 9999;
+      backdrop-filter: blur(10px);
+    }
+
+    .sticky-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    @media (max-width: 900px) {
+      .sticky-row {
+        flex-direction: column;
+        align-items: stretch
+      }
+    }
+
+    .sticky-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px
+    }
+
+    .sticky-left strong {
+      font-family: var(--heading-font);
+      font-size: 1.45rem;
+      color: var(--heading-color)
+    }
+
+    .sticky-left span {
+      font-family: var(--default-font);
+      font-size: 1.25rem;
+      color: color-mix(in srgb, var(--default-color), transparent 30%)
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="feira-wrap">
+    <div class="feira-container">
+
+      <section class="feira-hero" id="topo">
+        <div class="feira-badge">🎟️ EXCLUSIVO DA FEIRA | Versaliti</div>
+
+        <h1>Seu site profissional com desconto especial</h1>
+        <p>
+          Você escaneou o QR Code certo. Agora bora colocar sua empresa no digital
+          com presença, clareza e cara de marca que está crescendo.
+        </p>
+
+        <div class="feira-highlights">
+          <div class="pill">✅ Design moderno</div>
+          <div class="pill">✅ Responsivo</div>
+          <div class="pill">✅ WhatsApp + Formulário</div>
+          <div class="pill">✅ Entrega rápida</div>
+        </div>
+
+        <div class="feira-grid">
+          <div class="feira-card">
+            <strong style="font-size:1.6rem;color:var(--heading-color)">Oferta do evento</strong>
+            <p style="margin:10px 0 0 0">
+              Use o cupom abaixo para ativar o desconto na contratação.
+            </p>
+
+            <div class="cupom-box" role="group" aria-label="Cupom da feira">
+              <div>
+                <div
+                  style="font-size:1.25rem;color:color-mix(in srgb, var(--default-color), transparent 35%);font-weight:700">
+                  Cupom
+                </div>
+                <div class="cupom-code" id="cupomText">VERSALITI25</div>
+              </div>
+              <button class="btn-mini" id="btnCopiar">Copiar</button>
+            </div>
+
+            <div class="feira-note">
+              ⏳ Válido por <b>7 dias</b> após a feira. Atendimento via WhatsApp em minutos.
+            </div>
+
+            <div class="feira-actions">
+              <a class="btn-feira btn-primary-feira" href="#planos">Quero meu site com desconto</a>
+              <a class="btn-feira btn-outline-feira" id="btnWhats" href="#" rel="noopener">Falar no WhatsApp</a>
+            </div>
+          </div>
+
+          <aside class="feira-card">
+            <strong style="font-size:1.6rem;color:var(--heading-color)">Checklist do site que vende</strong>
+            <ul style="margin:12px 0 0 18px">
+              <li style="font-size:1.45rem;margin:10px 0">Mensagem clara: quem você é e o que resolve</li>
+              <li style="font-size:1.45rem;margin:10px 0">Botão WhatsApp sempre visível</li>
+              <li style="font-size:1.45rem;margin:10px 0">Seções objetivas, sem textão</li>
+              <li style="font-size:1.45rem;margin:10px 0">Velocidade + mobile perfeito</li>
+              <li style="font-size:1.45rem;margin:10px 0">Formulário funcionando de verdade</li>
+            </ul>
+            <div class="feira-note" id="countdownWrap" style="margin-top:14px">
+              ⏱️ Oferta termina em: <b id="countdown">carregando…</b>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <div class="section-title-feira">
+        <h2 id="planos">Escolha o pacote ideal para começar</h2>
+        <p>Feito para pequenos empreendedores e empresas que estão começando, sem complicar o processo.</p>
+      </div>
+
+      <section class="plans" aria-label="Planos">
+        <article class="plan">
+          <h3>Essencial</h3>
+          <p style="margin:0;color:color-mix(in srgb, var(--default-color), transparent 20%);font-size:1.5rem">
+            Para quem precisa estar online com profissionalismo.
+          </p>
+          <div class="price">R$ 699 <small>ou 3x</small></div>
+          <ul class="list">
+            <li><b>1 página</b> (institucional)</li>
+            <li>Design responsivo</li>
+            <li>Botão WhatsApp</li>
+            <li>SEO básico</li>
+            <li>Entrega rápida</li>
+          </ul>
+          <div class="feira-actions" style="margin-top:16px">
+            <a class="btn-feira btn-primary-feira" href="#comprar" data-plano="Essencial">Quero este</a>
+          </div>
+        </article>
+
+        <article class="plan featured">
+          <div class="tag">MAIS ESCOLHIDO</div>
+          <h3>Profissional</h3>
+          <p style="margin:0;color:color-mix(in srgb, var(--default-color), transparent 20%);font-size:1.5rem">
+            Para começar forte, com estrutura de conversão.
+          </p>
+          <div class="price">R$ 1.199 <small>ou 6x</small></div>
+          <ul class="list">
+            <li><b>Até 5 seções</b> (home completa)</li>
+            <li>WhatsApp + formulário</li>
+            <li>Integração redes sociais</li>
+            <li>Copy enxuta (texto guiado)</li>
+            <li>Otimização mobile</li>
+          </ul>
+          <div class="feira-actions" style="margin-top:16px">
+            <a class="btn-feira btn-primary-feira" href="#comprar" data-plano="Profissional">Quero este</a>
+            <a class="btn-feira btn-outline-feira" href="#faq">Tirar dúvidas</a>
+          </div>
+        </article>
+
+        <article class="plan">
+          <h3>Premium</h3>
+          <p style="margin:0;color:color-mix(in srgb, var(--default-color), transparent 20%);font-size:1.5rem">
+            Para quem quer presença e impacto (com extras).
+          </p>
+          <div class="price">R$ 1.899 <small>ou 8x</small></div>
+          <ul class="list">
+            <li><b>Site completo</b> (múltiplas páginas)</li>
+            <li>Seção portfólio / serviços</li>
+            <li>Animações e interações</li>
+            <li>Performance avançada</li>
+            <li>Suporte estendido</li>
+          </ul>
+          <div class="feira-actions" style="margin-top:16px">
+            <a class="btn-feira btn-primary-feira" href="#comprar" data-plano="Premium">Quero este</a>
+          </div>
+        </article>
+      </section>
+
+      <div class="section-title-feira" id="faq">
+        <h2>Perguntas rápidas</h2>
+        <p>Objetivo: você decidir com tranquilidade, sem letras miúdas.</p>
+      </div>
+
+      <section class="faq" aria-label="FAQ">
+        <details>
+          <summary>Em quanto tempo o site fica pronto?</summary>
+          <p>Depende do pacote e do material, mas a proposta é ser rápido: de poucos dias a 2 semanas em média.</p>
+        </details>
+        <details>
+          <summary>Eu preciso ter textos e fotos prontos?</summary>
+          <p>Se tiver, acelera. Se não tiver, a gente guia com um mini-briefing e sugestões para você aprovar.</p>
+        </details>
+        <details>
+          <summary>Hospedagem e domínio estão inclusos?</summary>
+          <p>Podem ser opcionais. Se você já tem, configuramos. Se não tem, orientamos e assumimos o setup.</p>
+        </details>
+        <details>
+          <summary>O cupom vale para qualquer plano?</summary>
+          <p>Sim. O desconto é aplicado na contratação dentro do prazo da campanha.</p>
+        </details>
+      </section>
+
+      <div class="section-title-feira" id="comprar">
+        <h2>Ativar desconto e fechar</h2>
+        <p>Escolha seu plano e vamos pelo caminho mais rápido: WhatsApp com mensagem pronta.</p>
+      </div>
+
+      <section class="feira-card">
+        <p style="margin:0;font-size:1.6rem">
+          Clique no botão e a mensagem já vai com: <b>plano</b> + <b>cupom</b>.
+        </p>
+        <div class="feira-actions" style="margin-top:14px">
+          <a class="btn-feira btn-primary-feira" id="btnFechar" href="#">Fechar com desconto (WhatsApp)</a>
+          <a class="btn-feira btn-outline-feira" href="#topo">Voltar ao topo</a>
+        </div>
+        <div class="feira-note">Dica: se você tiver uma página de checkout, troque o WhatsApp por “Finalizar compra”.
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- CTA fixo embaixo -->
+  <div class="sticky-cta">
+    <div class="feira-container">
+      <div class="sticky-row">
+        <div class="sticky-left">
+          <strong>Oferta da Feira ativa</strong>
+          <span>Cupom <b id="cupomMini">VERSALITI25</b> | Válido por 7 dias</span>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end">
+          <button class="btn-mini" id="btnCopiar2">Copiar cupom</button>
+          <a class="btn-feira btn-primary-feira" href="#planos" style="padding:12px 16px;border-radius:12px">Ver
+            planos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ====== CONFIG RÁPIDA ======
+    const CUPOM = "VERSALITI25";
+    const WHATS_NUMBER = "5511999999999"; // <-- troque aqui (DDI+DDD+número)
+    const DEADLINE = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 dias a partir de hoje
+
+    // ====== ELEMENTOS ======
+    const cupomText = document.getElementById("cupomText");
+    const cupomMini = document.getElementById("cupomMini");
+    const btnCopiar = document.getElementById("btnCopiar");
+    const btnCopiar2 = document.getElementById("btnCopiar2");
+    const btnWhats = document.getElementById("btnWhats");
+    const btnFechar = document.getElementById("btnFechar");
+    const countdownEl = document.getElementById("countdown");
+
+    // aplica cupom no texto
+    cupomText.textContent = CUPOM;
+    cupomMini.textContent = CUPOM;
+
+    function montarMsg(plano) {
+      const planoTxt = plano ? `Plano: ${plano}. ` : "";
+      return encodeURIComponent(
+        `Olá! Vim pela feira e quero ativar o desconto. ${planoTxt}Cupom: ${CUPOM}.`
+      );
+    }
+
+    function whatsappLink(plano) {
+      return `https://wa.me/${WHATS_NUMBER}?text=${montarMsg(plano)}`;
+    }
+
+    // copiar cupom
+    async function copiarCupom() {
+      try {
+        await navigator.clipboard.writeText(CUPOM);
+        btnCopiar.textContent = "Copiado!";
+        btnCopiar2.textContent = "Copiado!";
+        setTimeout(() => {
+          btnCopiar.textContent = "Copiar";
+          btnCopiar2.textContent = "Copiar cupom";
+        }, 1200);
+      } catch (e) {
+        // fallback simples
+        const tmp = document.createElement("textarea");
+        tmp.value = CUPOM;
+        document.body.appendChild(tmp);
+        tmp.select();
+        document.execCommand("copy");
+        document.body.removeChild(tmp);
+      }
+    }
+    btnCopiar.addEventListener("click", copiarCupom);
+    btnCopiar2.addEventListener("click", copiarCupom);
+
+    // links whatsapp
+    btnWhats.href = whatsappLink();
+    btnFechar.href = whatsappLink();
+
+    // clicar "Quero este" salva plano e manda pro Whats
+    document.querySelectorAll("[data-plano]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const plano = btn.getAttribute("data-plano");
+        btnFechar.href = whatsappLink(plano);
+        btnWhats.href = whatsappLink(plano);
+      });
+    });
+
+    // contador
+    function tickCountdown() {
+      const now = new Date();
+      const diff = DEADLINE - now;
+      if (diff <= 0) {
+        countdownEl.textContent = "encerrada";
+        return;
+      }
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const m = Math.floor((diff / (1000 * 60)) % 60);
+      countdownEl.textContent = `${d}d ${h}h ${m}m`;
+      requestAnimationFrame(() => setTimeout(tickCountdown, 1000));
+    }
+    tickCountdown();
+  </script>
+
+</body>
+
+</html>
