@@ -16,8 +16,6 @@
   <!-- Reaproveita sua identidade -->
   <link rel="stylesheet" href="assets/css/main.css" />
 
-
-
   <style>
     :root {
       /* Fonts */
@@ -177,6 +175,12 @@
       margin-bottom: 50px;
     }
 
+    @media (max-width: 1000px) {
+      .feira-card {
+        margin-bottom: 70px;
+      }
+    }
+
     .cupom-box {
       display: flex;
       align-items: center;
@@ -241,91 +245,6 @@
       color: color-mix(in srgb, var(--default-color), transparent 25%)
     }
 
-    .plans {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px
-    }
-
-    @media (max-width: 980px) {
-      .plans {
-        grid-template-columns: 1fr
-      }
-    }
-
-    .plan {
-      background: var(--surface-color);
-      border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-      border-radius: 18px;
-      padding: 22px;
-      position: relative;
-      transition: .2s ease;
-    }
-
-    .plan:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 40px color-mix(in srgb, var(--default-color), transparent 92%)
-    }
-
-    .plan.featured {
-      border-color: color-mix(in srgb, var(--accent-color), transparent 35%);
-      box-shadow: 0 24px 50px color-mix(in srgb, var(--accent-color), transparent 88%);
-    }
-
-    .plan .tag {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      background: var(--accent-color);
-      color: var(--contrast-color);
-      padding: 7px 10px;
-      border-radius: 999px;
-      font-family: var(--nav-font);
-      font-size: 1.1rem;
-      font-weight: 900;
-      letter-spacing: .08em;
-    }
-
-    .plan h3 {
-      margin: 0 0 8px 0;
-      font-family: var(--heading-font);
-      font-size: 2.1rem;
-      font-weight: 800;
-      color: var(--heading-color)
-    }
-
-    .price {
-      font-family: var(--heading-font);
-      font-size: 3.0rem;
-      font-weight: 900;
-      color: var(--accent-color);
-      margin: 12px 0
-    }
-
-    .price small {
-      font-family: var(--default-font);
-      font-size: 1.4rem;
-      color: color-mix(in srgb, var(--default-color), transparent 35%);
-      font-weight: 700
-    }
-
-    .list {
-      margin: 0;
-      padding: 0;
-      list-style: none
-    }
-
-    .list li {
-      font-family: var(--default-font);
-      font-size: 1.45rem;
-      margin: 10px 0;
-      color: color-mix(in srgb, var(--default-color), transparent 18%)
-    }
-
-    .list li b {
-      color: var(--heading-color)
-    }
-
     .faq {
       margin-top: 14px
     }
@@ -363,6 +282,23 @@
       padding: 12px 0;
       z-index: 9999;
       backdrop-filter: blur(10px);
+    }
+
+    /* ===== Sticky CTA recolhe quando chega no footer ===== */
+    .sticky-cta {
+      transition: transform .25s ease, opacity .25s ease, filter .25s ease;
+      will-change: transform, opacity;
+    }
+
+    .sticky-cta.is-collapsed {
+      transform: translateY(110%);
+      opacity: 0;
+      pointer-events: none;
+      filter: blur(2px);
+    }
+
+    .scroll-top.is-shifted {
+      transform: translateY(-56px);
     }
 
     /* ====== Pacote Único (Feira) ====== */
@@ -514,12 +450,24 @@
       color: color-mix(in srgb, var(--default-color), transparent 30%)
     }
 
+    .link-site {
+      font-family: var(--default-font);
+      font-weight: 600;
+      color: var(--accent-color);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: .2s ease;
+    }
+
+    .link-site:hover {
+      border-bottom: 1px solid var(--accent-color);
+    }
+
     /* ===== Botão Voltar ao Topo - Feira ===== */
     .scroll-top {
       position: fixed;
       right: 20px;
       bottom: 90px;
-      /* acima do sticky-cta */
       width: 48px;
       height: 48px;
       border-radius: 50%;
@@ -537,6 +485,7 @@
       transition: .3s ease;
       z-index: 9998;
       margin-bottom: 50px;
+      border: none;
     }
 
     .scroll-top.active {
@@ -546,6 +495,36 @@
 
     .scroll-top:hover {
       transform: translateY(-3px);
+    }
+
+    .footer-feira {
+      margin-top: 60px;
+      padding: 30px 0;
+      border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+      background: var(--background-color);
+    }
+
+    .footer-feira-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-feira p {
+      font-family: var(--default-font);
+      font-size: 1.35rem;
+      color: color-mix(in srgb, var(--default-color), transparent 30%);
+      margin: 0;
+    }
+
+    .footer-feira strong {
+      font-family: var(--heading-font);
+      color: var(--heading-color);
     }
   </style>
 </head>
@@ -594,7 +573,7 @@
             </div>
 
             <div class="feira-actions">
-              <a class="btn-feira btn-primary-feira" href="#planos">Quero meu site com desconto</a>
+              <a class="btn-feira btn-primary-feira" href="#pacote">Quero meu site com desconto</a>
               <a class="btn-feira btn-outline-feira" id="btnWhats" href="#" rel="noopener">Falar no WhatsApp</a>
             </div>
           </div>
@@ -684,16 +663,32 @@
           <summary>O cupom vale para qualquer plano?</summary>
           <p>Sim. O desconto é aplicado na contratação dentro do prazo da campanha.</p>
         </details>
+
+        <details>
+          <summary>Quem é a Versaliti?</summary>
+          <p>
+            A Versaliti é uma empresa especializada em desenvolvimento web estratégico para pequenos
+            empreendedores e empresas em fase de crescimento.
+          </p>
+          <p>
+            Trabalhamos com foco em presença digital, clareza de comunicação e geração de contatos.
+          </p>
+          <p>
+            👉 <a href="https://versaliti.com.br" target="_blank" class="link-site">
+              Conheça nosso site oficial
+            </a>
+          </p>
+        </details>
       </section>
 
       <div class="section-title-feira" id="comprar">
         <h2>Ativar desconto e fechar</h2>
-        <p>Escolha seu plano e vamos pelo caminho mais rápido: WhatsApp com mensagem pronta.</p>
+        <p>Vamos pelo caminho mais rápido: WhatsApp com mensagem pronta.</p>
       </div>
 
       <section class="feira-card">
         <p style="margin:0;font-size:1.6rem">
-          Clique no botão e a mensagem já vai com: <b>plano</b> + <b>cupom</b>.
+          Clique no botão e a mensagem já vai com: <b>pacote</b> + <b>cupom</b>.
         </p>
         <div class="feira-actions" style="margin-top:14px">
           <a class="btn-feira btn-primary-feira" id="btnFechar" href="#">Fechar com desconto (WhatsApp)</a>
@@ -706,6 +701,15 @@
     </div>
   </main>
 
+  <footer class="footer-feira" id="footerFeira">
+    <div class="footer-feira-container">
+      <p>Desenvolvido por <strong>Versaliti</strong></p>
+      <a href="https://versaliti.com.br" target="_blank" class="link-site">
+        Visitar site oficial
+      </a>
+    </div>
+  </footer>
+
   <!-- CTA fixo embaixo -->
   <div class="sticky-cta">
     <div class="feira-container">
@@ -716,8 +720,8 @@
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end">
           <button class="btn-mini" id="btnCopiar2">Copiar cupom</button>
-          <a class="btn-feira btn-primary-feira" href="#planos" style="padding:12px 16px;border-radius:12px">Ver
-            planos</a>
+          <a class="btn-feira btn-primary-feira" href="#pacote" style="padding:12px 16px;border-radius:12px">Ver
+            pacote</a>
         </div>
       </div>
     </div>
@@ -755,7 +759,6 @@
     if (cupomInline) cupomInline.textContent = CUPOM;
 
     function montarMsg() {
-      // Mensagem única, sem “Plano”
       return encodeURIComponent(
         `Olá! Vim pela feira e quero ativar o desconto do ${PACOTE_FEIRA}. Cupom: ${CUPOM}.`
       );
@@ -776,7 +779,6 @@
           if (btnCopiar2) btnCopiar2.textContent = "Copiar cupom";
         }, 1200);
       } catch (e) {
-        // fallback simples
         const tmp = document.createElement("textarea");
         tmp.value = CUPOM;
         document.body.appendChild(tmp);
@@ -837,9 +839,33 @@
 
       window.addEventListener("scroll", toggleScrollTopFeira);
     }
+
+    // ===== Sticky CTA recolhe quando chega no footer =====
+    const stickyCta = document.querySelector(".sticky-cta");
+    const footerFeira = document.getElementById("footerFeira");
+
+    if (stickyCta && footerFeira) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              stickyCta.classList.add("is-collapsed");
+              if (scrollTopBtn) scrollTopBtn.classList.add("is-shifted");
+            } else {
+              stickyCta.classList.remove("is-collapsed");
+              if (scrollTopBtn) scrollTopBtn.classList.remove("is-shifted");
+            }
+          });
+        },
+        {
+          root: null,
+          threshold: 0.02
+        }
+      );
+
+      observer.observe(footerFeira);
+    }
   </script>
-
-
 
 </body>
 
