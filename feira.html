@@ -6,10 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Oferta da Feira | Versaliti</title>
 
+  <!-- Google Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Poppins&family=Raleway&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
   <!-- Reaproveita sua identidade -->
   <link rel="stylesheet" href="assets/css/main.css" />
 
+
+
   <style>
+    :root {
+      /* Fonts */
+      --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      --heading-font: "Raleway", sans-serif;
+      --nav-font: "Poppins", sans-serif;
+    }
+
     /* ====== Feira: só o necessário (encaixa no seu design system) ====== */
     .feira-wrap {
       padding-top: 120px;
@@ -118,7 +136,10 @@
     }
 
     .btn-primary-feira:hover {
-      transform: translateY(-2px)
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+      color: var(--contrast-color);
+      /* garante contraste */
     }
 
     .btn-outline-feira {
@@ -128,7 +149,10 @@
     }
 
     .btn-outline-feira:hover {
-      background: color-mix(in srgb, var(--accent-color), transparent 94%)
+      background: var(--accent-color);
+      color: var(--contrast-color);
+      /* ESSENCIAL */
+      border-color: var(--accent-color);
     }
 
     .feira-grid {
@@ -150,6 +174,7 @@
       border-radius: 18px;
       padding: 22px;
       box-shadow: 0 12px 26px color-mix(in srgb, var(--default-color), transparent 94%);
+      margin-bottom: 50px;
     }
 
     .cupom-box {
@@ -488,6 +513,40 @@
       font-size: 1.25rem;
       color: color-mix(in srgb, var(--default-color), transparent 30%)
     }
+
+    /* ===== Botão Voltar ao Topo - Feira ===== */
+    .scroll-top {
+      position: fixed;
+      right: 20px;
+      bottom: 90px;
+      /* acima do sticky-cta */
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--accent-color);
+      color: var(--contrast-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-family: var(--heading-font);
+      text-decoration: none;
+      box-shadow: 0 15px 30px color-mix(in srgb, var(--accent-color), transparent 75%);
+      opacity: 0;
+      visibility: hidden;
+      transition: .3s ease;
+      z-index: 9998;
+      margin-bottom: 50px;
+    }
+
+    .scroll-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-top:hover {
+      transform: translateY(-3px);
+    }
   </style>
 </head>
 
@@ -664,9 +723,16 @@
     </div>
   </div>
 
+  <!-- Scroll Top -->
+  <button id="scrollTopFeira" class="scroll-top d-flex align-items-center justify-content-center"
+    aria-label="Voltar ao topo">
+    <i class="bi bi-arrow-up-short" aria-hidden="true"></i>
+  </button>
+
   <script>
     // ====== CONFIG RÁPIDA ======
     const CUPOM = "VERSALITI25";
+    const PACOTE_FEIRA = "Pacote Feira Versaliti";
     const WHATS_NUMBER = "5511999999999"; // <-- troque aqui (DDI+DDD+número)
     const DEADLINE = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 dias a partir de hoje
 
@@ -679,30 +745,35 @@
     const btnFechar = document.getElementById("btnFechar");
     const countdownEl = document.getElementById("countdown");
 
-    // aplica cupom no texto
-    cupomText.textContent = CUPOM;
-    cupomMini.textContent = CUPOM;
+    // (Opcional para a versão do pacote único)
+    const btnFecharPacote = document.getElementById("btnFecharPacote");
+    const cupomInline = document.getElementById("cupomInline");
 
-    function montarMsg(plano) {
-      const planoTxt = plano ? `Plano: ${plano}. ` : "";
+    // aplica cupom no texto (se existir)
+    if (cupomText) cupomText.textContent = CUPOM;
+    if (cupomMini) cupomMini.textContent = CUPOM;
+    if (cupomInline) cupomInline.textContent = CUPOM;
+
+    function montarMsg() {
+      // Mensagem única, sem “Plano”
       return encodeURIComponent(
-        `Olá! Vim pela feira e quero ativar o desconto. ${planoTxt}Cupom: ${CUPOM}.`
+        `Olá! Vim pela feira e quero ativar o desconto do ${PACOTE_FEIRA}. Cupom: ${CUPOM}.`
       );
     }
 
-    function whatsappLink(plano) {
-      return `https://wa.me/${WHATS_NUMBER}?text=${montarMsg(plano)}`;
+    function whatsappLink() {
+      return `https://wa.me/${WHATS_NUMBER}?text=${montarMsg()}`;
     }
 
     // copiar cupom
     async function copiarCupom() {
       try {
         await navigator.clipboard.writeText(CUPOM);
-        btnCopiar.textContent = "Copiado!";
-        btnCopiar2.textContent = "Copiado!";
+        if (btnCopiar) btnCopiar.textContent = "Copiado!";
+        if (btnCopiar2) btnCopiar2.textContent = "Copiado!";
         setTimeout(() => {
-          btnCopiar.textContent = "Copiar";
-          btnCopiar2.textContent = "Copiar cupom";
+          if (btnCopiar) btnCopiar.textContent = "Copiar";
+          if (btnCopiar2) btnCopiar2.textContent = "Copiar cupom";
         }, 1200);
       } catch (e) {
         // fallback simples
@@ -714,38 +785,61 @@
         document.body.removeChild(tmp);
       }
     }
-    btnCopiar.addEventListener("click", copiarCupom);
-    btnCopiar2.addEventListener("click", copiarCupom);
 
-    // links whatsapp
-    btnWhats.href = whatsappLink();
-    btnFechar.href = whatsappLink();
+    if (btnCopiar) btnCopiar.addEventListener("click", copiarCupom);
+    if (btnCopiar2) btnCopiar2.addEventListener("click", copiarCupom);
 
-    // clicar "Quero este" salva plano e manda pro Whats
-    document.querySelectorAll("[data-plano]").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const plano = btn.getAttribute("data-plano");
-        btnFechar.href = whatsappLink(plano);
-        btnWhats.href = whatsappLink(plano);
-      });
-    });
+    // links whatsapp (sempre pacote único)
+    const link = whatsappLink();
+    if (btnWhats) btnWhats.href = link;
+    if (btnFechar) btnFechar.href = link;
+    if (btnFecharPacote) btnFecharPacote.href = link;
 
     // contador
     function tickCountdown() {
+      if (!countdownEl) return;
+
       const now = new Date();
       const diff = DEADLINE - now;
+
       if (diff <= 0) {
         countdownEl.textContent = "encerrada";
         return;
       }
+
       const d = Math.floor(diff / (1000 * 60 * 60 * 24));
       const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
       const m = Math.floor((diff / (1000 * 60)) % 60);
       countdownEl.textContent = `${d}d ${h}h ${m}m`;
+
       requestAnimationFrame(() => setTimeout(tickCountdown, 1000));
     }
     tickCountdown();
+
+    // ===== Botão Voltar ao Topo =====
+    const scrollTopBtn = document.getElementById("scrollTopFeira");
+
+    function toggleScrollTopFeira() {
+      if (!scrollTopBtn) return;
+      window.scrollY > 300
+        ? scrollTopBtn.classList.add("active")
+        : scrollTopBtn.classList.remove("active");
+    }
+
+    if (scrollTopBtn) {
+      scrollTopBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+
+      window.addEventListener("scroll", toggleScrollTopFeira);
+    }
   </script>
+
+
 
 </body>
 
